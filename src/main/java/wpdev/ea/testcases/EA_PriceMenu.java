@@ -5,11 +5,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import wpdev.ea.EaInfoBox;
-import wpdev.ea.utils.Config;
+import wpdev.ea.EaPriceMenu;
 import wpdev.ea.utils.DriverManager;
 
-public class EA_InfoBox {
+public class EA_PriceMenu {
 	WebDriver driver = null;
 
 	@Test
@@ -21,15 +20,10 @@ public class EA_InfoBox {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "info-box/");
-	}
 
-	@Test(dependsOnMethods = "openPage")
-	public void eventinfoboxTestCase() {
-		EaInfoBox.eaInfoBox(driver);
+	@Test(dependsOnMethods = "invokeBrowser")
+	public void priceMenuTestCase() {
+		EaPriceMenu.eaPriceMenu(driver, "price-menu/");
 		driver.close();
 	}
-
 }
