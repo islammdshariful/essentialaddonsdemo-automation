@@ -114,6 +114,28 @@ public class EaOnePageNavigation {
 				assertEquals(service_path.getText(), eaOnePageNavigationUtils.TEXT.services_nav_path_xpath);
 				System.out.println("Service Navigation Passed !!");
 			}
+			
+			// PRICING NAVIGATION
+			WebElement pricing_icon = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.pricing_nav_button_xpath));
+			if (pricing_icon.isDisplayed()) {
+				System.out.println("Pricing icon Passed !!");
+			}
+			WebElement pricing_button = driver
+					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.pricing_nav_button_xpath));
+			cursor.moveToElement(pricing_button).build().perform();
+			Thread.sleep(1000);
+			WebElement pricing_tooltip = driver
+					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.pricing_nav_tooltip_xpath));
+			if (pricing_tooltip.isDisplayed()) {
+				assertEquals(pricing_tooltip.getText(), eaOnePageNavigationUtils.TEXT.pricing_nav_tooltip_text);
+				System.out.println("Pricing tooltip Passed !!");
+			}
+			pricing_button.click();
+			WebElement pricing_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.pricing_nav_path_xpath));
+			if (pricing_path.isDisplayed()) {
+				assertEquals(pricing_path.getText(), eaOnePageNavigationUtils.TEXT.pricing_nav_path_xpath);
+				System.out.println("Pricing Navigation Passed !!");
+			}
 
 
 		} catch (InterruptedException e) {
