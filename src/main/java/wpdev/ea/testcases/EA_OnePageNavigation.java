@@ -5,10 +5,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import wpdev.ea.EaInteractiveCards;
+import wpdev.ea.EaOnePageNavigation;
 import wpdev.ea.utils.DriverManager;
 
-public class EA_InteractiveCards {
+public class EA_OnePageNavigation {
 	WebDriver driver = null;
 
 	@Test
@@ -22,8 +22,8 @@ public class EA_InteractiveCards {
 
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void interactiveCardTestCase() {
-		EaInteractiveCards.eaInteractiveCards(driver, "interactive-cards/");
+	public void onePageNavTestCase() {
+		EaOnePageNavigation.eaInteractiveCardsUtils(driver, "one-page-nav/");
 		driver.close();
 	}
 }
