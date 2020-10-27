@@ -23,7 +23,7 @@ public class EA_OnePageNavigation {
 
 	@Test(dependsOnMethods = "invokeBrowser")
 	public void onePageNavTestCase() {
-		EaOnePageNavigation.eaInteractiveCardsUtils(driver, "one-page-nav/");
+		EaOnePageNavigation.eaOnePageNavigation(driver, "one-page-nav/");
 		driver.close();
 	}
 }

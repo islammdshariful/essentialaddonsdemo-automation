@@ -16,7 +16,7 @@ import wpdev.ea.utils.eaOnePageNavigationUtils;
 
 public class EaOnePageNavigation {
 
-	public static void eaInteractiveCardsUtils(WebDriver driver, String url) {
+	public static void eaOnePageNavigation(WebDriver driver, String url) {
 		driver.get(Config.url + url);
 		try {
 			if (Config.go_doc_page == 1) {
@@ -65,6 +65,7 @@ public class EaOnePageNavigation {
 				System.out.println("Home tooltip Passed !!");
 			}
 			home_button.click();
+			Thread.sleep(1000);
 			WebElement home_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.home_nav_path_xpath));
 			if (home_path.isDisplayed()) {
 				assertEquals(home_path.getText(), eaOnePageNavigationUtils.TEXT.home_nav_path_xpath);
@@ -87,6 +88,7 @@ public class EaOnePageNavigation {
 				System.out.println("Feature tooltip Passed !!");
 			}
 			feature_button.click();
+			Thread.sleep(1000);
 			WebElement feature_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.feature_nav_path_xpath));
 			if (feature_path.isDisplayed()) {
 				assertEquals(feature_path.getText(), eaOnePageNavigationUtils.TEXT.feature_nav_path_xpath);
@@ -105,10 +107,11 @@ public class EaOnePageNavigation {
 			WebElement service_tooltip = driver
 					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.services_nav_tooltip_xpath));
 			if (service_tooltip.isDisplayed()) {
-				assertEquals(feature_tooltip.getText(), eaOnePageNavigationUtils.TEXT.services_nav_tooltip_text);
+				assertEquals(service_tooltip.getText(), eaOnePageNavigationUtils.TEXT.services_nav_tooltip_text);
 				System.out.println("Service tooltip Passed !!");
 			}
-			feature_button.click();
+			service_button.click();
+			Thread.sleep(1000);
 			WebElement service_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.services_nav_path_xpath));
 			if (service_path.isDisplayed()) {
 				assertEquals(service_path.getText(), eaOnePageNavigationUtils.TEXT.services_nav_path_xpath);
@@ -131,12 +134,35 @@ public class EaOnePageNavigation {
 				System.out.println("Pricing tooltip Passed !!");
 			}
 			pricing_button.click();
+			Thread.sleep(1000);
 			WebElement pricing_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.pricing_nav_path_xpath));
 			if (pricing_path.isDisplayed()) {
 				assertEquals(pricing_path.getText(), eaOnePageNavigationUtils.TEXT.pricing_nav_path_xpath);
 				System.out.println("Pricing Navigation Passed !!");
 			}
 
+			// BLOG NAVIGATION
+			WebElement blog_icon = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.blog_nav_button_xpath));
+			if (blog_icon.isDisplayed()) {
+				System.out.println("Blog icon Passed !!");
+			}
+			WebElement blog_button = driver
+					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.blog_nav_button_xpath));
+			cursor.moveToElement(blog_button).build().perform();
+			Thread.sleep(1000);
+			WebElement blog_tooltip = driver
+					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.blog_nav_tooltip_xpath));
+			if (blog_tooltip.isDisplayed()) {
+				assertEquals(blog_tooltip.getText(), eaOnePageNavigationUtils.TEXT.blog_nav_tooltip_text);
+				System.out.println("Blog tooltip Passed !!");
+			}
+			blog_button.click();
+			Thread.sleep(1000);
+			WebElement blog_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.blog_nav_path_xpath));
+			if (blog_path.isDisplayed()) {
+				assertEquals(blog_path.getText(), eaOnePageNavigationUtils.TEXT.blog_nav_path_xpath);
+				System.out.println("Blog Navigation Passed !!");
+			}
 
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

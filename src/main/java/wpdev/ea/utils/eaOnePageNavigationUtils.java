@@ -3,7 +3,7 @@ package wpdev.ea.utils;
 public class eaOnePageNavigationUtils {
 	public static class TEXT {
 		public static final String onepagenavigation_title = "One Page Navigation | Essential Addons for Elementor";
-		public static final String documentation_page = "INTERACTIVE CARDS";
+		public static final String documentation_page = "ONE PAGE NAVIGATION";
 		
 		//TOOLTIP
 		public static final String home_nav_tooltip_text = "Home";

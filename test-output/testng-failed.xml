@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="wpdev.ea.testcases.EA_InteractiveCards">
+      <class name="wpdev.ea.testcases.EA_Counter">
         <methods>
-          <include name="interactiveCardTestCase"/>
+          <include name="ountdownTestCase"/>
           <include name="invokeBrowser"/>
         </methods>
-      </class> <!-- wpdev.ea.testcases.EA_InteractiveCards -->
+      </class> <!-- wpdev.ea.testcases.EA_Counter -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
