@@ -22,13 +22,8 @@ public class EA_AdvancedTabs {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "advanced-tabs/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eventadvanceaccordionTestCase() {
-		EaAdvancedTabs.eaAdvanceTab(driver);
+		EaAdvancedTabs.eaAdvanceTab(driver, "advanced-tabs/");
 		driver.close();
 	}
 }

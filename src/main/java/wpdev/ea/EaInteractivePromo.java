@@ -110,7 +110,7 @@ public class EaInteractivePromo {
 			wait.until(ExpectedConditions.or(
 			    ExpectedConditions.visibilityOfElementLocated((By.xpath(eaInteractivePromoUtils.Locator.second_promo_header_xpath)))));
 
-			snap(driver);
+//			snap(driver);
 			comparison(driver);
 
 			

@@ -135,10 +135,9 @@ public class EaInstagramFeed {
 //			nx.click();
 //			driver.findElement(By.xpath("/html/body/div[5]/div/span")).click();
 			
+			//NOTIFICATIONX 
 			WebElement element = driver.findElement(By.xpath("/html/body/div[5]/div/span"));
-
 			Actions actions = new Actions(driver);
-
 			actions.moveToElement(element).click().perform();
 			
 			js.executeScript("window.scrollBy(0,1068)", "");

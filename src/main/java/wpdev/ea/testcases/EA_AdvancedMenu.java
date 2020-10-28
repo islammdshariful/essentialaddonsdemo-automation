@@ -21,14 +21,10 @@ public class EA_AdvancedMenu {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "advanced-menu/");
-	}
 
-	@Test(dependsOnMethods = "openPage")
+	@Test(dependsOnMethods = "invokeBrowser")
 	public void advancedMenuTestCase() {
-		EaAdvancedMenu.eaAdvancedMenu(driver);
+		EaAdvancedMenu.eaAdvancedMenu(driver, "advanced-menu/");
 		driver.close();
 	}
 }

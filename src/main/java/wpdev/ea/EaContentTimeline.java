@@ -13,177 +13,63 @@ import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaContentTimelineUtils;
 
 public class EaContentTimeline {
-	public static void eaontentTimeline(WebDriver driver) {
+	public static void timeline(WebDriver driver, String number, String iconxpath, String datexpath, String datetext,
+			String headerxpath, String headertext, String desxpath, String destext) {
 
-		try {
-//				assertEquals(driver.getTitle(), eaContentTimelineUtils.TEXT.contenttimeline_page_title);
-//				System.out.println("Page title passed !!");
-//				
-//				driver.findElement(By.xpath(eaContentTimelineUtils.Locator.documentation_link_path)).click();
-//				
-//				ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
-//				driver.switchTo().window(tabs2.get(1));
-//				
-//				assertEquals(driver.findElement(By.id(eaContentTimelineUtils.Locator.documentation_title_id)).getText(), eaContentTimelineUtils.TEXT.documentation_page);
-//				System.out.println("Documentation link passed !!");
-//				driver.close();
-//				
-//				driver.switchTo().window(tabs2.get(0));
-//				
-			Thread.sleep(1000);
-
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-
-			js.executeScript("window.scrollBy(0,1103)", "");
-			WebElement icon_1 = driver.findElement(By.xpath(eaContentTimelineUtils.Locator.first_content_icon_xpath));
-			if (icon_1.isDisplayed()) {
-				System.out.println("First icon passed!!");
-			}
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.first_content_date_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.first_content_date_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.first_content_header_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.first_content_header_text);
-			assertEquals(driver.findElement(By.xpath(eaContentTimelineUtils.Locator.first_content_des_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.first_content_des_text);
-			System.out.println("First passed!!");
-
-			js.executeScript("window.scrollBy(0,1405)", "");
-			WebElement icon_2 = driver.findElement(By.xpath(eaContentTimelineUtils.Locator.second_content_icon_xpath));
-			if (icon_2.isDisplayed()) {
-				System.out.println("Second icon passed!!");
-			}
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.second_content_date_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.second_content_date_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.second_content_header_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.second_content_header_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.second_content_des_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.second_content_des_text);
-			System.out.println("Second passed!!");
-
-			js.executeScript("window.scrollBy(0,1505)", "");
-			WebElement icon_3 = driver.findElement(By.xpath(eaContentTimelineUtils.Locator.third_content_icon_xpath));
-			if (icon_3.isDisplayed()) {
-				System.out.println("Third icon passed!!");
-			}
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.third_content_date_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.third_content_date_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.third_content_header_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.third_content_header_text);
-			assertEquals(driver.findElement(By.xpath(eaContentTimelineUtils.Locator.third_content_des_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.third_content_des_text);
-			System.out.println("Third passed!!");
-
-//				js.executeScript("window.scrollBy(0,1605)", "");
-			WebElement icon_4 = driver.findElement(By.xpath(eaContentTimelineUtils.Locator.fourth_content_icon_xpath));
-			if (icon_3.isDisplayed()) {
-				System.out.println("Fourth icon passed!!");
-			}
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.fourth_content_date_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.fourth_content_date_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.fourth_content_header_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.fourth_content_header_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.fourth_content_des_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.fourth_content_des_text);
-			System.out.println("Fourth passed!!");
-
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		WebElement icon = driver.findElement(By.xpath(iconxpath));
+		if (icon.isDisplayed()) {
+			System.out.println(number + " icon passed!!");
 		}
+		assertEquals(driver.findElement(By.xpath(datexpath)).getText(), datetext);
+		assertEquals(driver.findElement(By.xpath(headerxpath)).getText(), headertext);
+		assertEquals(driver.findElement(By.xpath(desxpath)).getText(), destext);
+		System.out.println(number + " passed!!");
 	}
 
-	public static void eaontentTimeline(WebDriver driver, String pageurl) {
-		driver.get(Config.url + pageurl);
+	public static void eaontentTimeline(WebDriver driver, String url) {
+		driver.get(Config.url + url);
 		try {
-//			assertEquals(driver.getTitle(), eaContentTimelineUtils.TEXT.contenttimeline_page_title);
-//			System.out.println("Page title passed !!");
-//			
-//			driver.findElement(By.xpath(eaContentTimelineUtils.Locator.documentation_link_path)).click();
-//			
-//			ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
-//			driver.switchTo().window(tabs2.get(1));
-//			
-//			assertEquals(driver.findElement(By.id(eaContentTimelineUtils.Locator.documentation_title_id)).getText(), eaContentTimelineUtils.TEXT.documentation_page);
-//			System.out.println("Documentation link passed !!");
-//			driver.close();
-//			
-//			driver.switchTo().window(tabs2.get(0));
-//			
+			Config.checkdocandheadtitle.checkdoc(driver, eaContentTimelineUtils.TEXT.contenttimeline_page_title,
+					eaContentTimelineUtils.Locator.documentation_link_path,
+					eaContentTimelineUtils.TEXT.documentation_page);
+
 			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-
 			js.executeScript("window.scrollBy(0,1103)", "");
-			WebElement icon_1 = driver.findElement(By.xpath(eaContentTimelineUtils.Locator.first_content_icon_xpath));
-			if (icon_1.isDisplayed()) {
-				System.out.println("First icon passed!!");
-			}
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.first_content_date_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.first_content_date_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.first_content_header_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.first_content_header_text);
-			assertEquals(driver.findElement(By.xpath(eaContentTimelineUtils.Locator.first_content_des_xpath)).getText(),
+			timeline(driver, "First", eaContentTimelineUtils.Locator.first_content_icon_xpath,
+					eaContentTimelineUtils.Locator.first_content_date_xpath,
+					eaContentTimelineUtils.TEXT.first_content_date_text,
+					eaContentTimelineUtils.Locator.first_content_header_xpath,
+					eaContentTimelineUtils.TEXT.first_content_header_text,
+					eaContentTimelineUtils.Locator.first_content_des_xpath,
 					eaContentTimelineUtils.TEXT.first_content_des_text);
-			System.out.println("First passed!!");
 
 			js.executeScript("window.scrollBy(0,1405)", "");
-			WebElement icon_2 = driver.findElement(By.xpath(eaContentTimelineUtils.Locator.second_content_icon_xpath));
-			if (icon_2.isDisplayed()) {
-				System.out.println("Second icon passed!!");
-			}
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.second_content_date_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.second_content_date_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.second_content_header_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.second_content_header_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.second_content_des_xpath)).getText(),
+			timeline(driver, "Second", eaContentTimelineUtils.Locator.second_content_icon_xpath,
+					eaContentTimelineUtils.Locator.second_content_date_xpath,
+					eaContentTimelineUtils.TEXT.second_content_date_text,
+					eaContentTimelineUtils.Locator.second_content_header_xpath,
+					eaContentTimelineUtils.TEXT.second_content_header_text,
+					eaContentTimelineUtils.Locator.second_content_des_xpath,
 					eaContentTimelineUtils.TEXT.second_content_des_text);
-			System.out.println("Second passed!!");
 
 			js.executeScript("window.scrollBy(0,1505)", "");
-			WebElement icon_3 = driver.findElement(By.xpath(eaContentTimelineUtils.Locator.third_content_icon_xpath));
-			if (icon_3.isDisplayed()) {
-				System.out.println("Third icon passed!!");
-			}
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.third_content_date_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.third_content_date_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.third_content_header_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.third_content_header_text);
-			assertEquals(driver.findElement(By.xpath(eaContentTimelineUtils.Locator.third_content_des_xpath)).getText(),
+			timeline(driver, "Third", eaContentTimelineUtils.Locator.third_content_icon_xpath,
+					eaContentTimelineUtils.Locator.third_content_date_xpath,
+					eaContentTimelineUtils.TEXT.third_content_date_text,
+					eaContentTimelineUtils.Locator.third_content_header_xpath,
+					eaContentTimelineUtils.TEXT.third_content_header_text,
+					eaContentTimelineUtils.Locator.third_content_des_xpath,
 					eaContentTimelineUtils.TEXT.third_content_des_text);
-			System.out.println("Third passed!!");
 
-//			js.executeScript("window.scrollBy(0,1605)", "");
-			WebElement icon_4 = driver.findElement(By.xpath(eaContentTimelineUtils.Locator.fourth_content_icon_xpath));
-			if (icon_3.isDisplayed()) {
-				System.out.println("Fourth icon passed!!");
-			}
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.fourth_content_date_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.fourth_content_date_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.fourth_content_header_xpath)).getText(),
-					eaContentTimelineUtils.TEXT.fourth_content_header_text);
-			assertEquals(
-					driver.findElement(By.xpath(eaContentTimelineUtils.Locator.fourth_content_des_xpath)).getText(),
+			timeline(driver, "Fourth", eaContentTimelineUtils.Locator.fourth_content_icon_xpath,
+					eaContentTimelineUtils.Locator.fourth_content_date_xpath,
+					eaContentTimelineUtils.TEXT.fourth_content_date_text,
+					eaContentTimelineUtils.Locator.fourth_content_header_xpath,
+					eaContentTimelineUtils.TEXT.fourth_content_header_text,
+					eaContentTimelineUtils.Locator.fourth_content_des_xpath,
 					eaContentTimelineUtils.TEXT.fourth_content_des_text);
-			System.out.println("Fourth passed!!");
 
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

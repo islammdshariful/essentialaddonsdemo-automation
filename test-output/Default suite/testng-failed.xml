@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="wpdev.ea.testcases.EA_InteractivePromo">
+      <class name="wpdev.ea.testcases.EA_ContentTimeline">
         <methods>
-          <include name="interactivePromoTestCase"/>
           <include name="invokeBrowser"/>
+          <include name="contentTimelineTestCase"/>
         </methods>
-      </class> <!-- wpdev.ea.testcases.EA_InteractivePromo -->
+      </class> <!-- wpdev.ea.testcases.EA_ContentTimeline -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

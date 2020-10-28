@@ -21,14 +21,10 @@ public class EA_ContentTimeline {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
+	
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "content-timeline/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void contentTimelineTestCase() {
-		EaContentTimeline.eaontentTimeline(driver);
+		EaContentTimeline.eaontentTimeline(driver, "content-timeline/");
 		driver.close();
 	}
 }

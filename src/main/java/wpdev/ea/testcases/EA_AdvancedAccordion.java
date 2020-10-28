@@ -23,15 +23,11 @@ public class EA_AdvancedAccordion {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
-
+	
+	
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "advanced-accordion/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eventadvanceaccordionTestCase() {
-		EaAdvancedAccordion.eaAdvancedAccordion(driver);
+		EaAdvancedAccordion.eaAdvancedAccordion(driver, "advanced-accordion/");
 		driver.close();
 	}
 }

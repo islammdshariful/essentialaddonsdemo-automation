@@ -22,13 +22,8 @@ public class EA_CreativeButton {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "creative-buttons/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eventcreativebuttonTestCase() {
-		EaCreativeButton.eaCreativeButton(driver);
+		EaCreativeButton.eaCreativeButton(driver, "creative-buttons/");
 		driver.close();
 	}
 
