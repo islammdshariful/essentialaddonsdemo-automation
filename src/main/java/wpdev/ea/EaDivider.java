@@ -17,63 +17,53 @@ public class EaDivider {
 		driver.get(Config.url + url);
 
 		try {
-			if (Config.go_doc_page == 1) {
-				assertEquals(driver.getTitle(), eaDividerUtils.TEXT.divider_title);
-				System.out.println("Page title passed !!");
+			Config.checkdocandheadtitle.checkdoc(driver, eaDividerUtils.TEXT.divider_title,
+					eaDividerUtils.Locator.documentation_link_path, eaDividerUtils.TEXT.documentation_page);
 
-				driver.findElement(By.xpath(eaDividerUtils.Locator.documentation_link_path)).click();
-
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
-
-				assertEquals(driver.findElement(By.id(eaDividerUtils.Locator.documentation_title_id)).getText(),
-						eaDividerUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
-
-				driver.switchTo().window(tabs2.get(0));
-
-				Thread.sleep(1000);
-			}
+			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,921); behavior:'smooth';", "");
-			
-			
-			
-			//HEADER
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.header_text_xpath)).getText(), eaDividerUtils.TEXT.header_text_text);
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.header_des_xpath)).getText(), eaDividerUtils.TEXT.header_des_text);
+
+			// HEADER
+			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.header_text_xpath)).getText(),
+					eaDividerUtils.TEXT.header_text_text);
+			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.header_des_xpath)).getText(),
+					eaDividerUtils.TEXT.header_des_text);
 			System.out.println("Header text passed !!");
-			
-			//ICON TEXT
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon1_text_xpath)).getText(), eaDividerUtils.TEXT.icon1_text_text);
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon2_text_xpath)).getText(), eaDividerUtils.TEXT.icon2_text_text);
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon3_text_xpath)).getText(), eaDividerUtils.TEXT.icon3_text_text);
-			
-			//ICON IMAGE
+
+			// ICON TEXT
+			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon1_text_xpath)).getText(),
+					eaDividerUtils.TEXT.icon1_text_text);
+			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon2_text_xpath)).getText(),
+					eaDividerUtils.TEXT.icon2_text_text);
+			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon3_text_xpath)).getText(),
+					eaDividerUtils.TEXT.icon3_text_text);
+
+			// ICON IMAGE
 			WebElement icon1 = driver.findElement(By.xpath(eaDividerUtils.Locator.icon1_image_xpath));
 			WebElement icon2 = driver.findElement(By.xpath(eaDividerUtils.Locator.icon2_image_xpath));
 			WebElement icon3 = driver.findElement(By.xpath(eaDividerUtils.Locator.icon3_image_xpath));
-			
-			if(icon1.isDisplayed() && icon2.isDisplayed() && icon3.isDisplayed()) {
+
+			if (icon1.isDisplayed() && icon2.isDisplayed() && icon3.isDisplayed()) {
 				System.out.println("Icon Displayed !!");
-			}else {
+			} else {
 				System.out.println("Icon NOT Displayed !!");
 			}
-			//ICON DIVIDER
+			// ICON DIVIDER
 			WebElement icon1_l_border = driver.findElement(By.xpath(eaDividerUtils.Locator.icon1_divider_left_xpath));
 			WebElement icon1_r_border = driver.findElement(By.xpath(eaDividerUtils.Locator.icon1_divider_right_xpath));
-			
+
 			WebElement icon2_l_border = driver.findElement(By.xpath(eaDividerUtils.Locator.icon2_divider_left_xpath));
 			WebElement icon2_r_border = driver.findElement(By.xpath(eaDividerUtils.Locator.icon2_divider_right_xpath));
-			
+
 			WebElement icon3_l_border = driver.findElement(By.xpath(eaDividerUtils.Locator.icon3_divider_left_xpath));
 			WebElement icon3_r_border = driver.findElement(By.xpath(eaDividerUtils.Locator.icon3_divider_right_xpath));
 
-			if(icon1_l_border.isDisplayed() && icon1_r_border.isDisplayed() && icon2_l_border.isDisplayed() && icon2_r_border.isDisplayed() && icon3_l_border.isDisplayed() && icon3_r_border.isDisplayed()) {
+			if (icon1_l_border.isDisplayed() && icon1_r_border.isDisplayed() && icon2_l_border.isDisplayed()
+					&& icon2_r_border.isDisplayed() && icon3_l_border.isDisplayed() && icon3_r_border.isDisplayed()) {
 				System.out.println("ALL Divider Passed !!");
-			}else {
+			} else {
 				System.out.println("Divider NOT Passed !!");
 			}
 		} catch (InterruptedException e) {

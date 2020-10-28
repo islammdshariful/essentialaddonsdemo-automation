@@ -17,34 +17,15 @@ public class EaCounter {
 		driver.get(Config.url + url);
 
 		try {
-			if (Config.go_doc_page == 1) {
-				assertEquals(driver.getTitle(), eaCounterUtils.TEXT.counter_title);
-				System.out.println("Page title passed !!");
-
-				driver.findElement(By.xpath(eaCounterUtils.Locator.documentation_link_path)).click();
-
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
-
-				assertEquals(driver.findElement(By.id(eaCounterUtils.Locator.documentation_title_id)).getText(),
-						eaCounterUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
-
-				driver.switchTo().window(tabs2.get(0));
-
-				Thread.sleep(1000);
-			}
+			Config.checkdocandheadtitle.checkdoc(driver, eaCounterUtils.TEXT.counter_title,
+					eaCounterUtils.Locator.documentation_link_path, eaCounterUtils.TEXT.documentation_page);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,903); behavior:'smooth';", "");
 
-			// HEADER
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.header_text_xpath)).getText(),
-					eaCounterUtils.TEXT.header_text_text);
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.header_des_xpath)).getText(),
+			Config.checkdocandheadtitle.headercheck(driver, eaCounterUtils.Locator.header_text_xpath,
+					eaCounterUtils.TEXT.header_text_text, eaCounterUtils.Locator.header_des_xpath,
 					eaCounterUtils.TEXT.header_des_text);
-			System.out.println("Header text passed !!");
 
 			// ICON
 			WebElement icon1 = driver.findElement(By.xpath(eaCounterUtils.Locator.first_icon_xpath));
@@ -52,9 +33,9 @@ public class EaCounter {
 			WebElement icon3 = driver.findElement(By.xpath(eaCounterUtils.Locator.third_icon_xpath));
 			WebElement icon4 = driver.findElement(By.xpath(eaCounterUtils.Locator.fourth_icon_xpath));
 
-			if(icon1.isDisplayed() && icon2.isDisplayed() && icon3.isDisplayed() && icon4.isDisplayed()) {
+			if (icon1.isDisplayed() && icon2.isDisplayed() && icon3.isDisplayed() && icon4.isDisplayed()) {
 				System.out.println("Icon Passed !!");
-			}else {
+			} else {
 				System.out.println("Icon NOT Passed !!");
 			}
 			// INNER ICON
@@ -63,14 +44,14 @@ public class EaCounter {
 			WebElement icon3_in = driver.findElement(By.xpath(eaCounterUtils.Locator.third_icon_in_xpath));
 			WebElement icon4_in = driver.findElement(By.xpath(eaCounterUtils.Locator.fourth_icon_in_xpath));
 
-			if(icon1_in.isDisplayed() && icon2_in.isDisplayed() && icon3_in.isDisplayed() && icon4_in.isDisplayed()) {
+			if (icon1_in.isDisplayed() && icon2_in.isDisplayed() && icon3_in.isDisplayed() && icon4_in.isDisplayed()) {
 				System.out.println("Inner Icon Passed !!");
-			}else {
+			} else {
 				System.out.println("Inner Icon NOT Passed !!");
 			}
-			
+
 			Thread.sleep(3000);
-			
+
 			// COUNT
 			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.first_count_xpath)).getText(),
 					eaCounterUtils.TEXT.first_count_text);

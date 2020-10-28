@@ -38,5 +38,10 @@ public class eaDualColorHeadlineUtils {
 		public static final String second_normal_text_xpath = "//*[@id=\"post-1511\"]/div/div/div/div/section[3]/div/div/div/div/div/div/div/div/h2/span[2]";
 		public static final String second_color_text_xpath = "//*[@id=\"post-1511\"]/div/div/div/div/section[3]/div/div/div/div/div/div/div/div/h2/span[1]";
 		public static final String second_description_xpath = "//*[@id=\"post-1511\"]/div/div/div/div/section[3]/div/div/div/div/div/div/div/div/span";
+	
+		//ICON
+		public static final String first_icon_xpath = "//*[@id=\"post-1511\"]/div/div/div/div/section[2]/div/div/div/div/div/div/div/div/i";
+		public static final String second_icon_xpath = "//*[@id=\"post-1511\"]/div/div/div/div/section[3]/div/div/div/div/div/div/div/div/i";
+		
 	}
 }

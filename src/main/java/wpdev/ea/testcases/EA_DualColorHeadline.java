@@ -22,13 +22,8 @@ public class EA_DualColorHeadline {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "dual-color-headline/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eaDualColorHeadlineTestCase() {
-		EaDualColorHeadline.eaDualColorHeadline(driver);
-//		driver.close();
+		EaDualColorHeadline.eaDualColorHeadline(driver, "dual-color-headline/");
+		driver.close();
 	}
 }

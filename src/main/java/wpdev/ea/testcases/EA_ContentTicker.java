@@ -22,13 +22,8 @@ public class EA_ContentTicker {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "content-ticker/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void contentTickerTestCase() {
-		EaContentTicker.eaContentTicker(driver);
+		EaContentTicker.eaContentTicker(driver, "content-ticker/");
 		driver.close();
 	}
 }

@@ -20,7 +20,6 @@ public class EA_CallToAction {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-
 	@Test(dependsOnMethods = "invokeBrowser")
 	public void eventinfoboxTestCase() {
 		EaCallToAction.eaCallToAction(driver, "call-to-action/");

@@ -21,7 +21,6 @@ public class EA_Countdown {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-
 	@Test(dependsOnMethods = "invokeBrowser")
 	public void ountdownTestCase() {
 		EaCountdown.eaCountdown(driver, "countdown/");

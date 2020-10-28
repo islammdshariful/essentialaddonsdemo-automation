@@ -22,13 +22,8 @@ public class EA_DataTable {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "table/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eventinfoboxTestCase() {
-		EaDataTable.eaDataTable(driver);
+		EaDataTable.eaDataTable(driver, "table/");
 		driver.close();
 	}
 }

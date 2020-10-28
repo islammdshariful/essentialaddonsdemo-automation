@@ -22,13 +22,8 @@ public class EA_AdvancedDataTable {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "advanced-data-table/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void advancedDataTableTestCase() {
-		EaAdvancedDataTable.eaAdvancedDataTable(driver);
+		EaAdvancedDataTable.eaAdvancedDataTable(driver, "advanced-data-table/");
 		driver.close();
 	}
 }
