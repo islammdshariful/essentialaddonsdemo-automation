@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-27T16:28:43 BDT" name="Default suite" finished-at="2020-10-27T16:29:31 BDT" duration-ms="48735">
+  <suite started-at="2020-10-28T14:52:22 BDT" name="Default suite" finished-at="2020-10-28T14:52:49 BDT" duration-ms="27944">
     <groups>
     </groups>
-    <test started-at="2020-10-27T16:28:43 BDT" name="Default test" finished-at="2020-10-27T16:29:31 BDT" duration-ms="48735">
-      <class name="wpdev.ea.testcases.EA_Counter">
-        <test-method signature="invokeBrowser()[pri:0, instance:wpdev.ea.testcases.EA_Counter@a1153bc]" started-at="2020-10-27T16:28:43 BDT" name="invokeBrowser" finished-at="2020-10-27T16:28:48 BDT" duration-ms="5792" status="PASS">
+    <test started-at="2020-10-28T14:52:22 BDT" name="Default test" finished-at="2020-10-28T14:52:49 BDT" duration-ms="27944">
+      <class name="wpdev.ea.testcases.EA_ProgressBar">
+        <test-method signature="invokeBrowser()[pri:0, instance:wpdev.ea.testcases.EA_ProgressBar@a1153bc]" started-at="2020-10-28T14:52:22 BDT" name="invokeBrowser" finished-at="2020-10-28T14:52:27 BDT" duration-ms="5785" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- invokeBrowser -->
-        <test-method signature="ountdownTestCase()[pri:0, instance:wpdev.ea.testcases.EA_Counter@a1153bc]" started-at="2020-10-27T16:28:48 BDT" name="ountdownTestCase" finished-at="2020-10-27T16:29:31 BDT" depends-on-methods="wpdev.ea.testcases.EA_Counter.invokeBrowser" duration-ms="42910" status="PASS">
+        <test-method signature="progressBarTestCase()[pri:0, instance:wpdev.ea.testcases.EA_ProgressBar@a1153bc]" started-at="2020-10-28T14:52:27 BDT" name="progressBarTestCase" finished-at="2020-10-28T14:52:49 BDT" depends-on-methods="wpdev.ea.testcases.EA_ProgressBar.invokeBrowser" duration-ms="22123" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ountdownTestCase -->
-      </class> <!-- wpdev.ea.testcases.EA_Counter -->
+        </test-method> <!-- progressBarTestCase -->
+      </class> <!-- wpdev.ea.testcases.EA_ProgressBar -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
