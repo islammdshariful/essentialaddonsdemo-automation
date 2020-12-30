@@ -8,36 +8,42 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaDividerUtils;
 
 public class EaDivider {
 	public static void eaDivider(WebDriver driver, String url) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + url);
 
 		try {
 			Config.checkdocandheadtitle.checkdoc(driver, eaDividerUtils.TEXT.divider_title,
 					eaDividerUtils.Locator.documentation_link_path, eaDividerUtils.TEXT.documentation_page);
 
+//			Config.closeNotifications.betterdocs(driver);
+			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,921); behavior:'smooth';", "");
+//			js.executeScript("arguments[0].scrollIntoView();", element);
 
 			// HEADER
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.header_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.header_text_xpath)).getText(),
 					eaDividerUtils.TEXT.header_text_text);
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.header_des_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.header_des_xpath)).getText(),
 					eaDividerUtils.TEXT.header_des_text);
 			System.out.println("Header text passed !!");
 
 			// ICON TEXT
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon1_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon1_text_xpath)).getText(),
 					eaDividerUtils.TEXT.icon1_text_text);
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon2_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon2_text_xpath)).getText(),
 					eaDividerUtils.TEXT.icon2_text_text);
-			assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon3_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaDividerUtils.Locator.icon3_text_xpath)).getText(),
 					eaDividerUtils.TEXT.icon3_text_text);
 
 			// ICON IMAGE
@@ -66,8 +72,8 @@ public class EaDivider {
 			} else {
 				System.out.println("Divider NOT Passed !!");
 			}
+			softassert.assertAll();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

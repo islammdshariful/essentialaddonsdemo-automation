@@ -23,13 +23,8 @@ public class EA_ProtectedContent {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "protected-content/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void protectedContent() {
-		EaProtectedContent.eaProtectedContent(driver);
+		EaProtectedContent.eaProtectedContent(driver, "protected-content/");
 		driver.close();
 	}
 }

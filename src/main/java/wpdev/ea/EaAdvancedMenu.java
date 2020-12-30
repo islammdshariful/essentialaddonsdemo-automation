@@ -9,12 +9,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaAdvancedMenuUtils;
 
 public class EaAdvancedMenu {
 	public static void eaAdvancedMenu(WebDriver driver, String pageurl) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + pageurl);
 		try {
 			Config.checkdocandheadtitle.checkdoc(driver, eaAdvancedMenuUtils.TEXT.advancemenu_page_title,
@@ -27,7 +29,7 @@ public class EaAdvancedMenu {
 			Thread.sleep(3000);
 			// NORMAL MENU
 			// HOME
-			assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_home_id)).getText(),
+			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_home_id)).getText(),
 					eaAdvancedMenuUtils.TEXT.n_menu_home_text);
 			driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_home_id)).click();
 			Thread.sleep(2000);
@@ -38,7 +40,7 @@ public class EaAdvancedMenu {
 			Thread.sleep(2000);
 
 			// ELEMENT
-			assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_id)).getText(),
+			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_id)).getText(),
 					eaAdvancedMenuUtils.TEXT.n_menu_element_text);
 			WebElement element_menu = driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_id));
 			mousehover.moveToElement(element_menu).build().perform();
@@ -46,7 +48,7 @@ public class EaAdvancedMenu {
 			// ELEMENT - ADVANCE ACCORDION
 			WebElement element_menu_advance_accordion = driver
 					.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_advance_accordion_id));
-			assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_advance_accordion_id))
+			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_advance_accordion_id))
 					.getText(), eaAdvancedMenuUtils.TEXT.n_menu_element_advance_accordion_text);
 			mousehover.moveToElement(element_menu_advance_accordion).build().perform();
 			element_menu_advance_accordion.click();
@@ -63,7 +65,7 @@ public class EaAdvancedMenu {
 			mousehover.moveToElement(element_menu1).build().perform();
 			WebElement element_menu_google_map = driver
 					.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_google_map_id));
-			assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_google_map_id)).getText(),
+			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_google_map_id)).getText(),
 					eaAdvancedMenuUtils.TEXT.n_menu_element_google_map_text);
 			mousehover.moveToElement(element_menu_google_map).build().perform();
 			element_menu_google_map.click();
@@ -76,7 +78,7 @@ public class EaAdvancedMenu {
 			Thread.sleep(2000);
 
 			// SUPPORT
-			assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_support_id)).getText(),
+			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_support_id)).getText(),
 					eaAdvancedMenuUtils.TEXT.n_menu_support_text);
 			WebElement support_menu = driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_support_id));
 			mousehover.moveToElement(support_menu).build().perform();
@@ -90,18 +92,18 @@ public class EaAdvancedMenu {
 			Thread.sleep(2000);
 
 			// BLOG
-			assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_blog_id)).getText(),
+			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_blog_id)).getText(),
 					eaAdvancedMenuUtils.TEXT.n_menu_blog_text);
 			WebElement blog_menu = driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_blog_id));
 			mousehover.moveToElement(blog_menu).build().perform();
 			Thread.sleep(1000);
 
 			// CONTACT US
-			assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_contact_id)).getText(),
+			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_contact_id)).getText(),
 					eaAdvancedMenuUtils.TEXT.n_menu_contact_text);
 			WebElement contact_us_menu = driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_contact_id));
 			mousehover.moveToElement(contact_us_menu).build().perform();
-
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

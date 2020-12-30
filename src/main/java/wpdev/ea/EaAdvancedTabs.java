@@ -8,12 +8,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaAdvancedTabsUtils;
 
 public class EaAdvancedTabs {
 	public static void eaAdvanceTab(WebDriver driver, String pageurl) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + pageurl);
 
 		try {
@@ -34,9 +36,9 @@ public class EaAdvancedTabs {
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.first_tab_text_xpath)).click();
 			Thread.sleep(1000);
-			assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.first_tab_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.first_tab_text_xpath)).getText(),
 					eaAdvancedTabsUtils.TEXT.first_tab_text);
-			assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.first_tab_des_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.first_tab_des_xpath)).getText(),
 					eaAdvancedTabsUtils.TEXT.first_tab_des);
 
 			// SECOND TAB
@@ -48,9 +50,9 @@ public class EaAdvancedTabs {
 			}
 			driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.second_tab_text_xpath)).click();
 			Thread.sleep(1000);
-			assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.second_tab_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.second_tab_text_xpath)).getText(),
 					eaAdvancedTabsUtils.TEXT.second_tab_text);
-			assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.second_tab_des_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.second_tab_des_xpath)).getText(),
 					eaAdvancedTabsUtils.TEXT.second_tab_des);
 
 			// THIRD TAB
@@ -62,9 +64,9 @@ public class EaAdvancedTabs {
 			}
 			driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.third_tab_text_xpath)).click();
 			Thread.sleep(1000);
-			assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.third_tab_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.third_tab_text_xpath)).getText(),
 					eaAdvancedTabsUtils.TEXT.third_tab_text);
-			assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.third_tab_des_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.third_tab_des_xpath)).getText(),
 					eaAdvancedTabsUtils.TEXT.third_tab_des);
 
 			// FOURTH TAB
@@ -75,11 +77,11 @@ public class EaAdvancedTabs {
 				System.out.println("First tab icon Failed !!");
 			}
 			driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.fourth_tab_text_xpath)).click();
-			assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.fourth_tab_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.fourth_tab_text_xpath)).getText(),
 					eaAdvancedTabsUtils.TEXT.fourth_tab_text);
-			assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.fourth_tab_des_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaAdvancedTabsUtils.Locator.fourth_tab_des_xpath)).getText(),
 					eaAdvancedTabsUtils.TEXT.fourth_tab_des);
-
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

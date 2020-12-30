@@ -12,6 +12,8 @@ public class eaStickyVideoUtils {
 	
 		public static final String close_button_xpath = "//*[@id=\"videobox\"]/span/i";
 		public static final String play_button_xpath = "//*[@id=\"videobox\"]/div/button";
+		
+//		public static final String play_main_video_xpth = "//*[@id=\"videobox\"]/div/button";
 	}
 	
 }

@@ -9,20 +9,22 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
+import wpdev.ea.utils.eaDividerUtils;
 import wpdev.ea.utils.eaFilterableGalleryUtils;
 
 public class EaFilterableGallery {
 
 	public static void gallery(WebDriver driver, WebElement photo, WebElement header, WebElement icon, String tab,
-			String number) {
+			String number, SoftAssert softassert) {
 		try {
 			Actions cursor = new Actions(driver);
 			cursor.moveToElement(photo).build().perform();
 			Thread.sleep(1000);
 			if (header.isDisplayed()) {
-				assertEquals(header.getText(), eaFilterableGalleryUtils.TEXT.hover_text);
+				softassert.assertEquals(header.getText(), eaFilterableGalleryUtils.TEXT.hover_text);
 				System.out.println(tab + " Tab " + number + " First Photo Header Passed !!");
 				if (icon.isDisplayed()) {
 					System.out.println(tab + " Tab " + number + " Photo Icon Passed !!");
@@ -45,42 +47,29 @@ public class EaFilterableGallery {
 					System.out.println(tab + " Tab " + number + " Photo Zoom Gallery Passed !!");
 				}
 			}
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	public static void eaFilterableGallery(WebDriver driver, String url) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + url);
 
 		try {
-			if (Config.go_doc_page == 1) {
-				assertEquals(driver.getTitle(), eaFilterableGalleryUtils.TEXT.filterable_title);
-				System.out.println("Page title passed !!");
+			Config.checkdocandheadtitle.checkdoc(driver, eaFilterableGalleryUtils.TEXT.filterable_title,
+					eaFilterableGalleryUtils.Locator.documentation_link_path, eaFilterableGalleryUtils.TEXT.documentation_page);
 
-				driver.findElement(By.xpath(eaFilterableGalleryUtils.Locator.documentation_link_path)).click();
-
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
-
-				assertEquals(
-						driver.findElement(By.id(eaFilterableGalleryUtils.Locator.documentation_title_id)).getText(),
-						eaFilterableGalleryUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
-
-				driver.switchTo().window(tabs2.get(0));
-
-				Thread.sleep(1000);
-			}
-
-			Config.closeNotifications.betterdocs(driver);
+//			Config.closeNotifications.betterdocs(driver);
 			Config.closeNotifications.notificationBar(driver);
 			Config.closeNotifications.floatNotification(driver);
-
+			Thread.sleep(1000);
+			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,925)", "");
+			js.executeScript("window.scrollBy(0,1062)", "");
 
 			// HEADER
 			assertEquals(driver.findElement(By.xpath(eaFilterableGalleryUtils.Locator.header_text_xpath)).getText(),
@@ -176,43 +165,43 @@ public class EaFilterableGallery {
 			// ALL TAB
 			driver.findElement(By.xpath(eaFilterableGalleryUtils.Locator.all_tab_xpath)).click();
 			Thread.sleep(1000);
-			gallery(driver, all_first_photo, all_first_header, all_1_icon, "All", "First");
+			gallery(driver, all_first_photo, all_first_header, all_1_icon, "All", "First", softassert);
 			Thread.sleep(1000);
-			gallery(driver, all_second_photo, all_second_header, all_2_icon, "All", "Second");
+			gallery(driver, all_second_photo, all_second_header, all_2_icon, "All", "Second", softassert);
 			Thread.sleep(1000);
-			gallery(driver, all_third_photo, all_third_header, all_3_icon, "All", "Third");
+			gallery(driver, all_third_photo, all_third_header, all_3_icon, "All", "Third", softassert);
 			Thread.sleep(1000);
 
 			// NEWS TAB
 			driver.findElement(By.xpath(eaFilterableGalleryUtils.Locator.news_tab_xpath)).click();
 			Thread.sleep(1000);
-			gallery(driver, news_first_photo, news_first_header, news_1_icon, "News", "First");
+			gallery(driver, news_first_photo, news_first_header, news_1_icon, "News", "First", softassert);
 			Thread.sleep(1000);
-			gallery(driver, news_second_photo, news_second_header, news_2_icon, "News", "Second");
+			gallery(driver, news_second_photo, news_second_header, news_2_icon, "News", "Second", softassert);
 			Thread.sleep(1000);
 
 			// UPDATES TAB
 			driver.findElement(By.xpath(eaFilterableGalleryUtils.Locator.updates_tab_xpath)).click();
 			Thread.sleep(1000);
-			gallery(driver, updates_first_photo, updates_first_header, updates_1_icon, "Updates", "First");
+			gallery(driver, updates_first_photo, updates_first_header, updates_1_icon, "Updates", "First", softassert);
 			Thread.sleep(1000);
-			gallery(driver, updates_second_photo, updates_second_header, updates_2_icon, "Updates", "Second");
+			gallery(driver, updates_second_photo, updates_second_header, updates_2_icon, "Updates", "Second", softassert);
 			Thread.sleep(1000);
 
 			// EVENTS TAB
 			driver.findElement(By.xpath(eaFilterableGalleryUtils.Locator.events_tab_xpath)).click();
 			Thread.sleep(1000);
-			gallery(driver, events_first_photo, events_first_header, events_1_icon, "Events", "First");
+			gallery(driver, events_first_photo, events_first_header, events_1_icon, "Events", "First", softassert);
 			Thread.sleep(1000);
-			gallery(driver, events_second_photo, events_second_header, events_2_icon, "Events", "Second");
+			gallery(driver, events_second_photo, events_second_header, events_2_icon, "Events", "Second", softassert);
 			Thread.sleep(1000);
 
 			// MASONRY TAB
 			driver.findElement(By.xpath(eaFilterableGalleryUtils.Locator.masonry_tab_xpath)).click();
 			Thread.sleep(1000);
-			gallery(driver, masonry_first_photo, masonry_first_header, masonry_1_icon, "Masonry", "First");
+			gallery(driver, masonry_first_photo, masonry_first_header, masonry_1_icon, "Masonry", "First", softassert);
 			Thread.sleep(1000);
-			gallery(driver, masonry_second_photo, masonry_second_header, masonry_2_icon, "Masonry", "Second");
+			gallery(driver, masonry_second_photo, masonry_second_header, masonry_2_icon, "Masonry", "Second", softassert);
 			Thread.sleep(1000);
 
 		} catch (InterruptedException e) {

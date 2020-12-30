@@ -22,13 +22,8 @@ public class EA_PostTimeline {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "post-timeline/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void postTimelineTestCase() {
-		EaPostTimeline.eaPostTimeline(driver);
+		EaPostTimeline.eaPostTimeline(driver, "post-timeline/");
 		driver.close();
 	}
 }

@@ -4,15 +4,17 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.openqa.selenium.By; 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
+import wpdev.ea.utils.eaDividerUtils;
 import wpdev.ea.utils.eaImageComparisonUtils;
 
 public class EaImageComparison {
@@ -30,31 +32,17 @@ public class EaImageComparison {
 		driver.get(Config.url + url);
 
 		try {
-			if (Config.go_doc_page == 1) {
-				assertEquals(driver.getTitle(), eaImageComparisonUtils.TEXT.onepagenavigation_title);
-				System.out.println("Page title passed !!");
+			Config.checkdocandheadtitle.checkdoc(driver, eaImageComparisonUtils.TEXT.onepagenavigation_title,
+					eaImageComparisonUtils.Locator.documentation_link_path, eaImageComparisonUtils.TEXT.documentation_page);
 
-				driver.findElement(By.xpath(eaImageComparisonUtils.Locator.documentation_link_path)).click();
-
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
-
-				assertEquals(driver.findElement(By.id(eaImageComparisonUtils.Locator.documentation_title_id)).getText(),
-						eaImageComparisonUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
-
-				driver.switchTo().window(tabs2.get(0));
-
-				Thread.sleep(1000);
-			}
-
-			Config.closeNotifications.betterdocs(driver);
+//			Config.closeNotifications.betterdocs(driver);
 			Config.closeNotifications.notificationBar(driver);
 			Config.closeNotifications.floatNotification(driver);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1224)", "");
+//		js.executeScript("window.scrollBy(0,1120)", "");
+			WebElement element = driver.findElement(By.xpath("//*[@id=\"post-17\"]/div/div/div/div/section[2]/div/div/div/div/div/section/div/div/div/div/div/div[2]/div/div"));
+			js.executeScript("arguments[0].scrollIntoView();", element);
 
 			WebElement image = driver.findElement(By.xpath(eaImageComparisonUtils.Locator.image_comparison_box_xpath));
 			WebElement before = driver.findElement(By.xpath(eaImageComparisonUtils.Locator.before_xpath));
@@ -66,6 +54,7 @@ public class EaImageComparison {
 			WebElement slider_right_arrow = driver
 					.findElement(By.xpath(eaImageComparisonUtils.Locator.slider_right_arrow_xpath));
 
+			Thread.sleep(2000);
 			Actions mousehover = new Actions(driver);
 			mousehover.moveToElement(image).build().perform();
 
@@ -76,7 +65,6 @@ public class EaImageComparison {
 			if (slider_left_arrow.isDisplayed() && slider_right_arrow.isDisplayed()) {
 				System.out.println("Slider icon passed !!");
 			}
-			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

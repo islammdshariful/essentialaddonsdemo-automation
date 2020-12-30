@@ -23,13 +23,8 @@ public class EA_FeatureList {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "feature-list/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void FeatureLisTestCase() {
-		EaFeatureList.eaFeatureList(driver);
+		EaFeatureList.eaFeatureList(driver, "feature-list/");
 		driver.close();
 	}
 }

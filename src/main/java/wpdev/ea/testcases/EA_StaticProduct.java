@@ -22,13 +22,8 @@ public class EA_StaticProduct {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "static-product/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eventstaticproductTestCase() {
-		EaStaticProduct.eaStaticProduct(driver);
+		EaStaticProduct.eaStaticProduct(driver, "static-product/");
 		driver.close();
 	}
 

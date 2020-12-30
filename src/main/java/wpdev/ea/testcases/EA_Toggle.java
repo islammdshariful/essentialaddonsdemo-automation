@@ -22,14 +22,9 @@ public class EA_Toggle {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "content-toggle/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void toggleTestCase() {
 
-		EaToggle.eaToggle(driver);
+		EaToggle.eaToggle(driver, "content-toggle/");
 		driver.close();
 	}
 }

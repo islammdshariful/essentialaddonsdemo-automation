@@ -22,13 +22,8 @@ public class EA_InfoBox {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "info-box/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eventinfoboxTestCase() {
-		EaInfoBox.eaInfoBox(driver);
+		EaInfoBox.eaInfoBox(driver, "info-box/");
 		driver.close();
 	}
 

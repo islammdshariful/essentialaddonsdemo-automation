@@ -7,12 +7,13 @@ public class eaFlipBoxUtils {
 
 		// FLIP BOX 1
 		public static final String flip1_front_text = "Interface Design";
-		public static final String flip1_back_text = "Back Title";
+		public static final String flip1_back_text = "Style Your Flip Box Exclusively";
+		public static final String flip1_back_des_text = "Add your preferred content or use saved templates here, choose your 'Icon Type', add title, select title tag for front & back, set your content position, alignment and style your Flip Box the way you want.    ";
 
 		// FLIP BOX 1
-		public static final String flip2_front_text = "Development";
-		public static final String flip2_back_text = "Back Title";
-
+		public static final String flip2_front_text = "Interface Design";
+		public static final String flip2_back_text = "Make Your Flip Box Standout";
+		public static final String flip2_back_des_text = "Add your preferred content or use saved templates here, choose your 'Icon Type', add title, select title tag for front & back, set your content position, alignment and style your Flip Box the way you want.    ";
 	}
 
 	public static class Locator {
@@ -22,13 +23,16 @@ public class eaFlipBoxUtils {
 
 		// FLIP BOX 1
 		public static final String flip1_box_xpath = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[1]/div/div/div/div/div/a/div[1]";
+		public static final String flip1_front_img_xpth = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[1]/div/div/div/div/div/a/div[1]/div/div/div/div[1]/img";
 		public static final String flip1_front_text_xpath = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[1]/div/div/div/div/div/a/div[1]/div/div/div/h2";
 		public static final String flip1_back_text_xpath = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[1]/div/div/div/div/div/a/div[2]/div/div/div/h2";
-
+		public static final String flip1_back_des_xpth = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[1]/div/div/div/div/div/a/div[2]/div/div/div/div[2]/p[2]";
 		// FLIP BOX 2
 		public static final String flip2_box_xpath = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[2]/div/div/div/div/div/a/div[1]";
+		public static final String flip2_front_img_xpth = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[2]/div/div/div/div/div/a/div[1]/div/div/div/div[1]/img";
 		public static final String flip2_front_text_xpath = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[2]/div/div/div/div/div/a/div[1]/div/div/div/h2";
 		public static final String flip2_back_text_xpath = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[2]/div/div/div/div/div/a/div[2]/div/div/div/h2";
+		public static final String flip2_back_des_xpth = "//*[@id=\"post-1519\"]/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div[2]/div/div/div/div/div/a/div[2]/div/div/div/div[2]/p[2]";
 
 	}
 }

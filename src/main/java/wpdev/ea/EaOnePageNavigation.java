@@ -10,43 +10,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
+import wpdev.ea.utils.eaDividerUtils;
 import wpdev.ea.utils.eaOnePageNavigationUtils;
 
 public class EaOnePageNavigation {
 
 	public static void eaOnePageNavigation(WebDriver driver, String url) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + url);
 		try {
-			if (Config.go_doc_page == 1) {
-				assertEquals(driver.getTitle(), eaOnePageNavigationUtils.TEXT.onepagenavigation_title);
-				System.out.println("Page title passed !!");
-
-				driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.documentation_link_path)).click();
-
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
-
-				assertEquals(
-						driver.findElement(By.id(eaOnePageNavigationUtils.Locator.documentation_title_id)).getText(),
-						eaOnePageNavigationUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
-
-				driver.switchTo().window(tabs2.get(0));
-
-				Thread.sleep(1000);
-			}
+			Config.checkdocandheadtitle.checkdoc(driver,eaOnePageNavigationUtils.TEXT.onepagenavigation_title,
+					eaOnePageNavigationUtils.Locator.documentation_link_path, eaOnePageNavigationUtils.TEXT.documentation_page);
+			
+//			Config.closeNotifications.betterdocs(driver);
+			Config.closeNotifications.notificationBar(driver);
+			Config.closeNotifications.floatNotification(driver);
+			Thread.sleep(1000);
 
 //			JavascriptExecutor js = (JavascriptExecutor) driver;
 //			js.executeScript("window.scrollBy(0,1026)", "");
-
-			WebDriverWait wait = new WebDriverWait(driver, 30);
-			wait.until(ExpectedConditions.or(ExpectedConditions.visibilityOfElementLocated((By.className("cc-86w0")))));
-
-			driver.findElement(By.className("cc-86w0")).click();
-			driver.findElement(By.className("nx-close")).click();
 
 			// HOME NAVIGATION
 			WebElement home_icon = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.home_nav_icon_xpath));
@@ -61,14 +46,14 @@ public class EaOnePageNavigation {
 			WebElement home_tooltip = driver
 					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.home_nav_tooltip_xpath));
 			if (home_tooltip.isDisplayed()) {
-				assertEquals(home_tooltip.getText(), eaOnePageNavigationUtils.TEXT.home_nav_tooltip_text);
+				softassert.assertEquals(home_tooltip.getText(), eaOnePageNavigationUtils.TEXT.home_nav_tooltip_text);
 				System.out.println("Home tooltip Passed !!");
 			}
 			home_button.click();
 			Thread.sleep(1000);
 			WebElement home_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.home_nav_path_xpath));
 			if (home_path.isDisplayed()) {
-				assertEquals(home_path.getText(), eaOnePageNavigationUtils.TEXT.home_nav_path_xpath);
+				softassert.assertEquals(home_path.getText(), eaOnePageNavigationUtils.TEXT.home_nav_path_xpath);
 				System.out.println("Home Navigation Passed !!");
 			}
 
@@ -84,14 +69,14 @@ public class EaOnePageNavigation {
 			WebElement feature_tooltip = driver
 					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.feature_nav_tooltip_xpath));
 			if (feature_tooltip.isDisplayed()) {
-				assertEquals(feature_tooltip.getText(), eaOnePageNavigationUtils.TEXT.feature_nav_tooltip_text);
+				softassert.assertEquals(feature_tooltip.getText(), eaOnePageNavigationUtils.TEXT.feature_nav_tooltip_text);
 				System.out.println("Feature tooltip Passed !!");
 			}
 			feature_button.click();
 			Thread.sleep(1000);
 			WebElement feature_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.feature_nav_path_xpath));
 			if (feature_path.isDisplayed()) {
-				assertEquals(feature_path.getText(), eaOnePageNavigationUtils.TEXT.feature_nav_path_xpath);
+				softassert.assertEquals(feature_path.getText(), eaOnePageNavigationUtils.TEXT.feature_nav_path_xpath);
 				System.out.println("Feature Navigation Passed !!");
 			}
 			
@@ -107,14 +92,14 @@ public class EaOnePageNavigation {
 			WebElement service_tooltip = driver
 					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.services_nav_tooltip_xpath));
 			if (service_tooltip.isDisplayed()) {
-				assertEquals(service_tooltip.getText(), eaOnePageNavigationUtils.TEXT.services_nav_tooltip_text);
+				softassert.assertEquals(service_tooltip.getText(), eaOnePageNavigationUtils.TEXT.services_nav_tooltip_text);
 				System.out.println("Service tooltip Passed !!");
 			}
 			service_button.click();
 			Thread.sleep(1000);
 			WebElement service_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.services_nav_path_xpath));
 			if (service_path.isDisplayed()) {
-				assertEquals(service_path.getText(), eaOnePageNavigationUtils.TEXT.services_nav_path_xpath);
+				softassert.assertEquals(service_path.getText(), eaOnePageNavigationUtils.TEXT.services_nav_path_xpath);
 				System.out.println("Service Navigation Passed !!");
 			}
 			
@@ -130,14 +115,14 @@ public class EaOnePageNavigation {
 			WebElement pricing_tooltip = driver
 					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.pricing_nav_tooltip_xpath));
 			if (pricing_tooltip.isDisplayed()) {
-				assertEquals(pricing_tooltip.getText(), eaOnePageNavigationUtils.TEXT.pricing_nav_tooltip_text);
+				softassert.assertEquals(pricing_tooltip.getText(), eaOnePageNavigationUtils.TEXT.pricing_nav_tooltip_text);
 				System.out.println("Pricing tooltip Passed !!");
 			}
 			pricing_button.click();
 			Thread.sleep(1000);
 			WebElement pricing_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.pricing_nav_path_xpath));
 			if (pricing_path.isDisplayed()) {
-				assertEquals(pricing_path.getText(), eaOnePageNavigationUtils.TEXT.pricing_nav_path_xpath);
+				softassert.assertEquals(pricing_path.getText(), eaOnePageNavigationUtils.TEXT.pricing_nav_path_xpath);
 				System.out.println("Pricing Navigation Passed !!");
 			}
 
@@ -153,17 +138,18 @@ public class EaOnePageNavigation {
 			WebElement blog_tooltip = driver
 					.findElement(By.xpath(eaOnePageNavigationUtils.Locator.blog_nav_tooltip_xpath));
 			if (blog_tooltip.isDisplayed()) {
-				assertEquals(blog_tooltip.getText(), eaOnePageNavigationUtils.TEXT.blog_nav_tooltip_text);
+				softassert.assertEquals(blog_tooltip.getText(), eaOnePageNavigationUtils.TEXT.blog_nav_tooltip_text);
 				System.out.println("Blog tooltip Passed !!");
 			}
 			blog_button.click();
 			Thread.sleep(1000);
 			WebElement blog_path = driver.findElement(By.xpath(eaOnePageNavigationUtils.Locator.blog_nav_path_xpath));
 			if (blog_path.isDisplayed()) {
-				assertEquals(blog_path.getText(), eaOnePageNavigationUtils.TEXT.blog_nav_path_xpath);
+				softassert.assertEquals(blog_path.getText(), eaOnePageNavigationUtils.TEXT.blog_nav_path_xpath);
 				System.out.println("Blog Navigation Passed !!");
 			}
 
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

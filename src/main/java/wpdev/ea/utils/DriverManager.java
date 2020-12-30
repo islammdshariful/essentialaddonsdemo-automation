@@ -14,8 +14,8 @@ public class DriverManager {
 	public static WebDriver driver = new ChromeDriver();
 //	public static WebDriver driver = new FirefoxDriver();
 
-//	private DriverManager() {
-//		
-//	}
+	private DriverManager() {
+		
+	}
 
 }

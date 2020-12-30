@@ -23,13 +23,8 @@ public class EA_LogoCarousel {
 	}
 	
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url+"logo-carousel/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void LogoCarouseTestCase() {
-		EaLogoCarousel.eaLogoCarousel(driver);
+		EaLogoCarousel.eaLogoCarousel(driver, "logo-carousel/");
 		driver.close();
 	}
 }

@@ -23,95 +23,36 @@ import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
 import wpdev.ea.utils.Config;
+import wpdev.ea.utils.SnapComImg;
+import wpdev.ea.utils.eaDividerUtils;
+import wpdev.ea.utils.eaInteractiveCardsUtils;
 import wpdev.ea.utils.eaInteractivePromoUtils;
 
 public class EaInteractivePromo {
-	public static void snap(WebDriver driver) {
-		try {
-			WebElement logoImageElement_snap = driver
-					.findElement(By.xpath(eaInteractivePromoUtils.Locator.first_promo_image_xpath));
-
-			Screenshot first_ig_img_snap = new AShot().coordsProvider(new WebDriverCoordsProvider())
-					.takeScreenshot(driver, logoImageElement_snap);
-//			Screenshot first_ig_img_snap = new AShot().takeScreenshot(driver, logoImageElement_snap);
-			ImageIO.write(first_ig_img_snap.getImage(), "png",
-					new File(System.getProperty("user.dir") + "/forCompareImage/InteractivePromo/input.png"));
-			File file = new File(System.getProperty("user.dir") + "/forCompareImage/InteractivePromo/input.png");
-
-			if (file.exists()) {
-				System.out.println("Image File Captured");
-			} else {
-				System.out.println("Image File NOT exist");
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	public static void comparison(WebDriver driver) {
-		try {
-
-			// COMPARE IMAGE
-			BufferedImage expectedImage = ImageIO
-					.read(new File(System.getProperty("user.dir") + "/forCompareImage/InteractivePromo/input.png"));
-
-			WebElement logoImageElement_com = driver
-					.findElement(By.xpath(eaInteractivePromoUtils.Locator.first_promo_image_xpath));
-			Screenshot first_ig_img_com = new AShot().coordsProvider(new WebDriverCoordsProvider())
-					.takeScreenshot(driver, logoImageElement_com);
-
-			ImageIO.write(first_ig_img_com.getImage(), "png",
-					new File(System.getProperty("user.dir") + "/forCompareImage/InteractivePromo/output/output.png"));
-			BufferedImage actualImage = first_ig_img_com.getImage();
-
-			ImageDiffer imgDiff = new ImageDiffer(); // A special class to compare images
-			ImageDiff diff = imgDiff.makeDiff(actualImage, expectedImage);
-			if (diff.hasDiff() == true) {
-				System.out.println("Images are NOT Same");
-			} else {
-				System.out.println("Images are Same");
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	public static void eaInteractivePromo(WebDriver driver, String url) {
 		driver.get(Config.url + url);
 
 		try {
-			if (Config.go_doc_page == 1) {
-				assertEquals(driver.getTitle(), eaInteractivePromoUtils.TEXT.interationpromo_page_title);
-				System.out.println("Page title passed !!");
+			
+			Config.checkdocandheadtitle.checkdoc(driver, eaInteractivePromoUtils.TEXT.interationpromo_page_title,
+					eaInteractivePromoUtils.Locator.documentation_link_path, eaInteractivePromoUtils.TEXT.documentation_page);
 
-				driver.findElement(By.xpath(eaInteractivePromoUtils.Locator.documentation_link_path)).click();
-
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
-
-				assertEquals(
-						driver.findElement(By.id(eaInteractivePromoUtils.Locator.documentation_title_id)).getText(),
-						eaInteractivePromoUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
-
-				driver.switchTo().window(tabs2.get(0));
-//				
-				Thread.sleep(1000);
-			}
+//			Config.closeNotifications.betterdocs(driver);
+			Config.closeNotifications.notificationBar(driver);
+			Config.closeNotifications.floatNotification(driver);
+			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,988)", "");
-			Thread.sleep(8000);
+			js.executeScript("window.scrollBy(0,1039)", "");
+			Thread.sleep(2000);
 
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.or(
 			    ExpectedConditions.visibilityOfElementLocated((By.xpath(eaInteractivePromoUtils.Locator.second_promo_header_xpath)))));
 
-//			snap(driver);
-			comparison(driver);
+//			SnapComImg.snap(driver, eaInteractivePromoUtils.Locator.first_promo_image_xpath, "InteractivePromo/input.png");
+			SnapComImg.comparison(driver, eaInteractivePromoUtils.Locator.first_promo_image_xpath,
+					"InteractivePromo/input.png", "InteractivePromo/output/output.png");
 
 			
 			Actions mousehover = new Actions(driver);

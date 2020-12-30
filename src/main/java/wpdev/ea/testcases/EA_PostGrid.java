@@ -21,14 +21,10 @@ public class EA_PostGrid {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "post-grid/");
-	}
 
-	@Test(dependsOnMethods = "openPage")
+	@Test(dependsOnMethods = "invokeBrowser")
 	public void postGridTestCase() {
-		EaPostGrid.eaPostGrid(driver);
+		EaPostGrid.eaPostGrid(driver, "post-grid/");
 		driver.close();
 	}
 }

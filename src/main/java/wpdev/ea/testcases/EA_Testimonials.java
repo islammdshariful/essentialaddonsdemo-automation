@@ -22,13 +22,8 @@ public class EA_Testimonials {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "testimonials/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void testimonialTestCase() {
-		EaTestimonials.eaTestimonials(driver);
-//		driver.close();
+		EaTestimonials.eaTestimonials(driver, "testimonials/");
+		driver.close();
 	}
 }

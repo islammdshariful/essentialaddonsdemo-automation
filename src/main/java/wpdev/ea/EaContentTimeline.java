@@ -8,13 +8,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaContentTimelineUtils;
 
 public class EaContentTimeline {
+	
 	public static void timeline(WebDriver driver, String number, String iconxpath, String datexpath, String datetext,
-			String headerxpath, String headertext, String desxpath, String destext) {
+			String headerxpath, String headertext, String desxpath, String destext, SoftAssert softassert) {
 
 		WebElement icon = driver.findElement(By.xpath(iconxpath));
 		if (icon.isDisplayed()) {
@@ -27,6 +29,7 @@ public class EaContentTimeline {
 	}
 
 	public static void eaontentTimeline(WebDriver driver, String url) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + url);
 		try {
 			Config.checkdocandheadtitle.checkdoc(driver, eaContentTimelineUtils.TEXT.contenttimeline_page_title,
@@ -34,7 +37,7 @@ public class EaContentTimeline {
 					eaContentTimelineUtils.TEXT.documentation_page);
 
 			Thread.sleep(1000);
-
+			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,1103)", "");
 			timeline(driver, "First", eaContentTimelineUtils.Locator.first_content_icon_xpath,
@@ -43,7 +46,7 @@ public class EaContentTimeline {
 					eaContentTimelineUtils.Locator.first_content_header_xpath,
 					eaContentTimelineUtils.TEXT.first_content_header_text,
 					eaContentTimelineUtils.Locator.first_content_des_xpath,
-					eaContentTimelineUtils.TEXT.first_content_des_text);
+					eaContentTimelineUtils.TEXT.first_content_des_text, softassert);
 
 			js.executeScript("window.scrollBy(0,1405)", "");
 			timeline(driver, "Second", eaContentTimelineUtils.Locator.second_content_icon_xpath,
@@ -52,7 +55,7 @@ public class EaContentTimeline {
 					eaContentTimelineUtils.Locator.second_content_header_xpath,
 					eaContentTimelineUtils.TEXT.second_content_header_text,
 					eaContentTimelineUtils.Locator.second_content_des_xpath,
-					eaContentTimelineUtils.TEXT.second_content_des_text);
+					eaContentTimelineUtils.TEXT.second_content_des_text, softassert);
 
 			js.executeScript("window.scrollBy(0,1505)", "");
 			timeline(driver, "Third", eaContentTimelineUtils.Locator.third_content_icon_xpath,
@@ -61,7 +64,7 @@ public class EaContentTimeline {
 					eaContentTimelineUtils.Locator.third_content_header_xpath,
 					eaContentTimelineUtils.TEXT.third_content_header_text,
 					eaContentTimelineUtils.Locator.third_content_des_xpath,
-					eaContentTimelineUtils.TEXT.third_content_des_text);
+					eaContentTimelineUtils.TEXT.third_content_des_text, softassert);
 
 			timeline(driver, "Fourth", eaContentTimelineUtils.Locator.fourth_content_icon_xpath,
 					eaContentTimelineUtils.Locator.fourth_content_date_xpath,
@@ -69,8 +72,9 @@ public class EaContentTimeline {
 					eaContentTimelineUtils.Locator.fourth_content_header_xpath,
 					eaContentTimelineUtils.TEXT.fourth_content_header_text,
 					eaContentTimelineUtils.Locator.fourth_content_des_xpath,
-					eaContentTimelineUtils.TEXT.fourth_content_des_text);
+					eaContentTimelineUtils.TEXT.fourth_content_des_text, softassert);
 
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

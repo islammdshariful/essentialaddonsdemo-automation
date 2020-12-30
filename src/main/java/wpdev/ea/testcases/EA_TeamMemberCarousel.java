@@ -23,13 +23,8 @@ public class EA_TeamMemberCarousel {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "team-members-carousel/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void teamMemberCarouselTestCase() {
-		EaTeamMemberCarousel.eaTeamMemberCarousel(driver);
-//		driver.close();
+		EaTeamMemberCarousel.eaTeamMemberCarousel(driver, "team-members-carousel/");
+		driver.close();
 	}
 }

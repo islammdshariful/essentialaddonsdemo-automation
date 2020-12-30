@@ -22,13 +22,8 @@ public class EA_Tooltip {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "tooltip/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eventflipboxTestCase() {
-		EaTooltip.eaTooltip(driver);
+		EaTooltip.eaTooltip(driver, "tooltip/");
 		driver.close();
 	}
 }

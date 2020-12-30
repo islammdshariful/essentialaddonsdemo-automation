@@ -9,66 +9,52 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
+import wpdev.ea.utils.eaDividerUtils;
 import wpdev.ea.utils.eaFancyTextUtils;
 
 public class EaFancyText {
 	public static void eaFancyText(WebDriver driver, String url) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + url);
-		try {
-			if (Config.go_doc_page == 1) {
-				assertEquals(driver.getTitle(), eaFancyTextUtils.TEXT.fancytext_title);
-				System.out.println("Page title passed !!");
+		Config.checkdocandheadtitle.checkdoc(driver, eaFancyTextUtils.TEXT.fancytext_title,
+				eaFancyTextUtils.Locator.documentation_link_path, eaFancyTextUtils.TEXT.documentation_page);
 
-				driver.findElement(By.xpath(eaFancyTextUtils.Locator.documentation_link_path)).click();
+//		Config.closeNotifications.betterdocs(driver);
+		Config.closeNotifications.notificationBar(driver);
+//		Config.closeNotifications.floatNotification(driver);
 
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,989); behavior:'smooth';", "");
 
-				assertEquals(driver.findElement(By.id(eaFancyTextUtils.Locator.documentation_title_id)).getText(),
-						eaFancyTextUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
+		// HEADER
+		softassert.assertEquals(driver.findElement(By.xpath(eaFancyTextUtils.Locator.header_text_xpath)).getText(),
+				eaFancyTextUtils.TEXT.header_text_text);
+		softassert.assertEquals(driver.findElement(By.xpath(eaFancyTextUtils.Locator.header_des_xpath)).getText(),
+				eaFancyTextUtils.TEXT.header_des_text);
+		System.out.println("Header text passed !!");
 
-				driver.switchTo().window(tabs2.get(0));
+		softassert.assertEquals(driver.findElement(By.xpath(eaFancyTextUtils.Locator.fancytext_normal_xpath)).getText(),
+				eaFancyTextUtils.TEXT.fancytext_normal_text);
+		System.out.println("Normal text Passed !!");
 
-				Thread.sleep(1000);
-			}
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(
+				By.xpath(eaFancyTextUtils.Locator.fancytext_moving_xpath),
+				eaFancyTextUtils.TEXT.fancytext_moving_1_text));
+		System.out.println("Typography text Passed !!");
 
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,989); behavior:'smooth';", "");
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(
+				By.xpath(eaFancyTextUtils.Locator.fancytext_moving_xpath),
+				eaFancyTextUtils.TEXT.fancytext_moving_2_text));
+		System.out.println("Color text Passed !!");
 
-			// HEADER
-			assertEquals(driver.findElement(By.xpath(eaFancyTextUtils.Locator.header_text_xpath)).getText(),
-					eaFancyTextUtils.TEXT.header_text_text);
-			assertEquals(driver.findElement(By.xpath(eaFancyTextUtils.Locator.header_des_xpath)).getText(),
-					eaFancyTextUtils.TEXT.header_des_text);
-			System.out.println("Header text passed !!");
-
-			assertEquals(driver.findElement(By.xpath(eaFancyTextUtils.Locator.fancytext_normal_xpath)).getText(),
-					eaFancyTextUtils.TEXT.fancytext_normal_text);
-			System.out.println("Normal text Passed !!");
-			
-			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions.textToBePresentInElementLocated(
-					By.xpath(eaFancyTextUtils.Locator.fancytext_moving_xpath),
-					eaFancyTextUtils.TEXT.fancytext_moving_1_text));
-			System.out.println("Typography text Passed !!");
-			
-			wait.until(ExpectedConditions.textToBePresentInElementLocated(
-					By.xpath(eaFancyTextUtils.Locator.fancytext_moving_xpath),
-					eaFancyTextUtils.TEXT.fancytext_moving_2_text));
-			System.out.println("Color text Passed !!");
-			
-			wait.until(ExpectedConditions.textToBePresentInElementLocated(
-					By.xpath(eaFancyTextUtils.Locator.fancytext_moving_xpath),
-					eaFancyTextUtils.TEXT.fancytext_moving_3_text));
-			System.out.println("Background text Passed !!");
-			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(
+				By.xpath(eaFancyTextUtils.Locator.fancytext_moving_xpath),
+				eaFancyTextUtils.TEXT.fancytext_moving_3_text));
+		System.out.println("Background text Passed !!");
+		softassert.assertAll();
 	}
 }

@@ -9,32 +9,27 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import wpdev.ea.utils.Config;
+import wpdev.ea.utils.eaDividerUtils;
 import wpdev.ea.utils.eaLogoCarouselUtils;
 
 public class EaLogoCarousel {
-	public static void eaLogoCarousel(WebDriver driver) {
-
+	public static void eaLogoCarousel(WebDriver driver, String url) {
+		driver.get(Config.url + url);
 		try {
-//				assertEquals(driver.getTitle(), eaLogoCarouselUtils.TEXT.logocarousel_page_title);
-//				System.out.println("Page title passed !!");
-//				
-//				driver.findElement(By.xpath(eaLogoCarouselUtils.Locator.documentation_link_path)).click();
-//				
-//				ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
-//				driver.switchTo().window(tabs2.get(1));
-//				
-//				assertEquals(driver.findElement(By.id(eaLogoCarouselUtils.Locator.documentation_title_id)).getText(), eaLogoCarouselUtils.TEXT.documentation_page);
-//				System.out.println("Documentation link passed !!");
-//				driver.close();
-//				
-//				driver.switchTo().window(tabs2.get(0));
-//			
+			Config.checkdocandheadtitle.checkdoc(driver, eaLogoCarouselUtils.TEXT.logocarousel_page_title,
+					eaLogoCarouselUtils.Locator.documentation_link_path, eaLogoCarouselUtils.TEXT.documentation_page);
+
+//			Config.closeNotifications.betterdocs(driver);
+			Config.closeNotifications.notificationBar(driver);
+			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
+
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-
-			js.executeScript("window.scrollBy(0,996)", "");
-
+			js.executeScript("window.scrollBy(0,960)", "");
+			
+			Thread.sleep(2000);
 			driver.findElement(By.xpath(eaLogoCarouselUtils.Locator.dot_button_xpath)).click();
 			Thread.sleep(1000);
 			WebElement first_logo = driver.findElement(By.xpath(eaLogoCarouselUtils.Locator.first_logo_xpath));
@@ -50,7 +45,6 @@ public class EaLogoCarousel {
 			}
 
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -22,13 +22,8 @@ public class EA_StickyVideo {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "sticky-video/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void stickyVideoTestCase() {
-		EaStickyVideo.eaStickyVideo(driver);
+		EaStickyVideo.eaStickyVideo(driver, "sticky-video/");
 		driver.close();
 	}
 

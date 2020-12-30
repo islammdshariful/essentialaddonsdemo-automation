@@ -20,10 +20,6 @@ public class EA_PostCarousel {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-//	@Test(dependsOnMethods = "invokeBrowser")
-//	public void openPage() {
-//		driver.get(Config.url + "info-box/");
-//	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
 	public void postCarouselTestCase() {

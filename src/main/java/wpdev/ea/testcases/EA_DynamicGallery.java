@@ -22,13 +22,8 @@ public class EA_DynamicGallery {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "dynamic-gallery/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void dynamicGalleryTestCase() {
-		EaDynamicGallery.eaDynamicGallery(driver);
+		EaDynamicGallery.eaDynamicGallery(driver, "dynamic-gallery/");
 		driver.close();
 	}
 }

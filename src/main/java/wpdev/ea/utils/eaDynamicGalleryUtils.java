@@ -36,10 +36,10 @@ public class eaDynamicGalleryUtils {
 		public static final String templates_tab_image_xpath = "//*[@id=\"eael-filter-gallery-wrapper-3990f5c\"]/div[2]/div[1]/div/div[1]/img";
 
 		// HEADERS
-		public static final String all_tab_header_xpath = "//*[@id=\"eael-filter-gallery-wrapper-3990f5c\"]/div[2]/div[1]/div/div[2]/h2/a";
-		public static final String elementor_tab_header_xpath = "//*[@id=\"eael-filter-gallery-wrapper-3990f5c\"]/div[2]/div[1]/div/div[2]/h2/a";
-		public static final String wordpress_tab_header_xpath = "//*[@id=\"eael-filter-gallery-wrapper-3990f5c\"]/div[2]/div[2]/div/div[2]/h2/a";
-		public static final String templates_tab_header_xpath = "//*[@id=\"eael-filter-gallery-wrapper-3990f5c\"]/div[2]/div[1]/div/div[2]/h2/a";
+		public static final String all_tab_header_xpath = "/html/body/div[3]/div/div/div/main/article/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div/div/div/div/div/div/div[2]/div[1]/div/div[2]/h2/a";
+		public static final String elementor_tab_header_xpath = "/html/body/div[3]/div/div/div/main/article/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div/div/div/div/div/div/div[2]/div[1]/div/div[2]/h2/a";
+		public static final String wordpress_tab_header_xpath = "/html/body/div[3]/div/div/div/main/article/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div/div/div/div/div/div/div[2]/div[1]/div/div[2]/h2/a";
+		public static final String templates_tab_header_xpath = "/html/body/div[3]/div/div/div/main/article/div/div/div/div/section[2]/div/div/div/div/div/section[2]/div/div/div/div/div/div/div/div/div[2]/div[2]/div/div[2]/h2/a";
 
 		// DETAILS
 		public static final String all_tab_des_xpath = "//*[@id=\"eael-filter-gallery-wrapper-3990f5c\"]/div[2]/div[1]/div/div[2]/p";
@@ -48,7 +48,8 @@ public class eaDynamicGalleryUtils {
 		public static final String templates_tab_des_xpath = "//*[@id=\"eael-filter-gallery-wrapper-3990f5c\"]/div[2]/div[1]/div/div[2]/p";
 
 		// PAGE
-		public static final String all_tab_page_xpath = "//*[@id=\"main\"]/div/div/section/div/div/div[1]/div/div/section[1]/div/div/div/div/div/div[1]/div/h1";
+		public static final String all_tab_page_xpath = "/html/body/div[2]/div[1]/div/section/div/div/div[1]/div/div/section[1]/div/div/div/div/div/div[1]/div/h1";
+		
 
 	}
 }

@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
@@ -20,9 +21,10 @@ import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaDualColorHeadlineUtils;
 
 public class EaDualColorHeadline {
+	
 	public static void colorcode(WebDriver driver, String textxpath, String text, String color, String number,
-			String type) {
-		assertEquals(driver.findElement(By.xpath(textxpath)).getText(), text);
+			String type, SoftAssert softassert) {
+		softassert.assertEquals(driver.findElement(By.xpath(textxpath)).getText(), text);
 		System.out.println(number + " " + type + " headline text passed !!");
 		String color_fn = driver.findElement(By.xpath(textxpath)).getCssValue("color");
 		System.out.println(color_fn);
@@ -36,11 +38,12 @@ public class EaDualColorHeadline {
 		String actualColor_fn = String.format("#%02x%02x%02x", hexValue1_fn, hexValue2_fn, hexValue3_fn);
 		String value_fn = actualColor_fn.toUpperCase();
 		System.out.println(value_fn);
-		assertTrue(value_fn.equals(color));
+		softassert.assertTrue(value_fn.equals(color));
 		System.out.println(number + " " + type + " headline color passed !!");
 	}
 
 	public static void eaDualColorHeadline(WebDriver driver, String pageurl) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + pageurl);
 		try {
 			Config.checkdocandheadtitle.checkdoc(driver, eaDualColorHeadlineUtils.TEXT.dualcolorheadline_page_title,
@@ -53,26 +56,26 @@ public class EaDualColorHeadline {
 			// FIRST HEADLINE 
 			colorcode(driver, eaDualColorHeadlineUtils.Locator.first_normal_text_xpath,
 					eaDualColorHeadlineUtils.TEXT.first_normal_text,
-					eaDualColorHeadlineUtils.TEXT.first_normal_text_color, "First", "Normal");
+					eaDualColorHeadlineUtils.TEXT.first_normal_text_color, "First", "Normal", softassert);
 
 			colorcode(driver, eaDualColorHeadlineUtils.Locator.first_color_text_xpath,
 					eaDualColorHeadlineUtils.TEXT.first_color_text,
-					eaDualColorHeadlineUtils.TEXT.first_color_text_color, "First", "Color");
+					eaDualColorHeadlineUtils.TEXT.first_color_text_color, "First", "Color", softassert);
 			
-			assertEquals(
+			softassert.assertEquals(
 					driver.findElement(By.xpath(eaDualColorHeadlineUtils.Locator.first_description_xpath)).getText(),
 					eaDualColorHeadlineUtils.TEXT.first_description);
 
 			// SECOND HEADLINE
 			colorcode(driver, eaDualColorHeadlineUtils.Locator.second_normal_text_xpath,
 					eaDualColorHeadlineUtils.TEXT.second_normal_text,
-					eaDualColorHeadlineUtils.TEXT.second_normal_text_color, "Second", "Normal");
+					eaDualColorHeadlineUtils.TEXT.second_normal_text_color, "Second", "Normal", softassert);
 			
 			colorcode(driver, eaDualColorHeadlineUtils.Locator.second_color_text_xpath,
 					eaDualColorHeadlineUtils.TEXT.second_color_text,
-					eaDualColorHeadlineUtils.TEXT.second_color_text_color, "Second", "Color");
+					eaDualColorHeadlineUtils.TEXT.second_color_text_color, "Second", "Color", softassert);
 			
-			assertEquals(
+			softassert.assertEquals(
 					driver.findElement(By.xpath(eaDualColorHeadlineUtils.Locator.second_description_xpath)).getText(),
 					eaDualColorHeadlineUtils.TEXT.second_description);
 

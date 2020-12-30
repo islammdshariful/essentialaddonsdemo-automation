@@ -41,7 +41,7 @@ public class eaCounterUtils {
 	public static class Locator {
 		// DOCUMENTATION PAGE
 		public static final String documentation_title_id = "betterdocs-entry-title";
-		public static final String documentation_link_path = "/html/body/div[3]/div[1]/div/div/div/main/article/div/div/div/div/section[1]/div[3]/div/div[2]/div/div/section/div/div/div[2]/div/div/div[3]/div/div/a";
+		public static final String documentation_link_path = "//*[@id=\"post-2948\"]/div/div/div/div/section[1]/div[3]/div/div[2]/div/div/section/div/div/div[2]/div/div/div[3]/div/div/a";
 	
 		//HEADER TEXT
 		public static final String header_text_xpath = "//*[@id=\"post-2948\"]/div/div/div/div/section[2]/div/div/div/div/div/section[1]/div/div/div[2]/div/div/div[1]/div/h3";

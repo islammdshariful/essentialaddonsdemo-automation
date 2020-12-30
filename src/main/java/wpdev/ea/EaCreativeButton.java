@@ -10,6 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaCreativeButtonUtils;
@@ -17,18 +18,23 @@ import wpdev.ea.utils.eaFlipBoxUtils;
 
 public class EaCreativeButton {
 	public static void eaCreativeButton(WebDriver driver, String pageurl) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + pageurl);
 		try {
 			Config.checkdocandheadtitle.checkdoc(driver, eaCreativeButtonUtils.TEXT.creativebutton_page_title,
 					eaCreativeButtonUtils.Locator.documentation_link_path,
 					eaCreativeButtonUtils.TEXT.documentation_page);
 
+//			Config.closeNotifications.betterdocs(driver);
+			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
+			Thread.sleep(1000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,1118)", "");
 
 			Thread.sleep(1000);
 
-			assertEquals(driver.findElement(By.xpath(eaCreativeButtonUtils.Locator.firstbutton_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaCreativeButtonUtils.Locator.firstbutton_text_xpath)).getText(),
 					eaCreativeButtonUtils.TEXT.firstbutton_text);
 			System.out.println("First button text passed !!");
 
@@ -45,7 +51,7 @@ public class EaCreativeButton {
 			String actualColor = String.format("#%02x%02x%02x", hexValue1, hexValue2, hexValue3);
 			String value = actualColor.toUpperCase();
 			System.out.println(value);
-			assertTrue(value.equals(eaCreativeButtonUtils.TEXT.firstbutton_hoveroff_bgcolor));
+			softassert.assertTrue(value.equals(eaCreativeButtonUtils.TEXT.firstbutton_hoveroff_bgcolor));
 			System.out.println("First button front color passed !!");
 
 			Thread.sleep(1000);
@@ -53,7 +59,7 @@ public class EaCreativeButton {
 			WebElement firstbutton = driver.findElement(By.xpath(eaCreativeButtonUtils.Locator.fistbutton_xpath));
 			mousehover.moveToElement(firstbutton).build().perform();
 
-			assertEquals(driver.findElement(By.xpath(eaCreativeButtonUtils.Locator.lastbutton_text_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaCreativeButtonUtils.Locator.lastbutton_text_xpath)).getText(),
 					eaCreativeButtonUtils.TEXT.lastbutton_hoveroff_text);
 			System.out.println("last button hover off text passed !!");
 
@@ -66,7 +72,7 @@ public class EaCreativeButton {
 			String attribute_name = driver.findElement(By.xpath(eaCreativeButtonUtils.Locator.lastbutton_xpath))
 					.getAttribute("data-text");
 
-			assertEquals(attribute_name, eaCreativeButtonUtils.TEXT.lastbutton_hoveron_text);
+			softassert.assertEquals(attribute_name, eaCreativeButtonUtils.TEXT.lastbutton_hoveron_text);
 			System.out.println("last button hover on text passed !!");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

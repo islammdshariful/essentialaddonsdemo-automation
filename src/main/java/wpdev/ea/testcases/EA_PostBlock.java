@@ -23,13 +23,8 @@ public class EA_PostBlock {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "post-block/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void postBlockTestCase() {
-		EaPostBlock.eaPostBlock(driver);
+		EaPostBlock.eaPostBlock(driver, "post-block/");
 		driver.close();
 	}
 }

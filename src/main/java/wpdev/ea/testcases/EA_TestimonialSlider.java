@@ -23,13 +23,8 @@ public class EA_TestimonialSlider {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "testimonial-slider/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void testimonialSliderTestCase() {
-		EaTestimonialSlider.eaTestimonialSlider(driver);
-//		driver.close();
+		EaTestimonialSlider.eaTestimonialSlider(driver, "testimonial-slider/");
+		driver.close();
 	}
 }

@@ -8,12 +8,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaCounterUtils;
 
 public class EaCounter {
 	public static void eaCounter(WebDriver driver, String url) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + url);
 
 		try {
@@ -53,25 +55,27 @@ public class EaCounter {
 			Thread.sleep(3000);
 
 			// COUNT
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.first_count_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.first_count_xpath)).getText(),
 					eaCounterUtils.TEXT.first_count_text);
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.second_count_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.second_count_xpath)).getText(),
 					eaCounterUtils.TEXT.second_count_text);
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.third_count_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.third_count_xpath)).getText(),
 					eaCounterUtils.TEXT.third_count_text);
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.fourth_count_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.fourth_count_xpath)).getText(),
 					eaCounterUtils.TEXT.fourth_count_text);
 
 			// TEXT
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.first_count_xpath)).getText(),
-					eaCounterUtils.TEXT.first_count_text);
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.second_count_xpath)).getText(),
-					eaCounterUtils.TEXT.second_count_text);
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.third_count_xpath)).getText(),
-					eaCounterUtils.TEXT.third_count_text);
-			assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.fourth_count_xpath)).getText(),
-					eaCounterUtils.TEXT.fourth_count_text);
-
+			softassert.assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.first_text_xpath)).getText(),
+					eaCounterUtils.TEXT.first_text);
+			softassert.assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.second_text_xpath)).getText(),
+					eaCounterUtils.TEXT.second_text);
+			softassert.assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.third_text_xpath)).getText(),
+					eaCounterUtils.TEXT.third_text);
+			softassert.assertEquals(driver.findElement(By.xpath(eaCounterUtils.Locator.fourth_text_xpath)).getText(),
+					eaCounterUtils.TEXT.fourth_text);
+			
+			
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -8,27 +8,30 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
 import wpdev.ea.utils.eaAdvancedAccordionUtils;
 
 public class EaAdvancedAccordion {
 	public static void eaAdvancedAccordion(WebDriver driver, String pageurl) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + pageurl);
 
 		try {
 			Config.checkdocandheadtitle.checkdoc(driver, eaAdvancedAccordionUtils.TEXT.advanceaccordion_page_title,
 					eaAdvancedAccordionUtils.Locator.documentation_link_xpath,
 					eaAdvancedAccordionUtils.TEXT.documentation_page);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,972)", "");
 
+			
 			// FIRST ACCORDION
 			WebElement first_icon = driver
 					.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.first_accordion_icon_xpath));
@@ -37,14 +40,14 @@ public class EaAdvancedAccordion {
 			} else {
 				System.out.println("First icon display failed !!");
 			}
-			assertEquals(
+			softassert.assertEquals(
 					driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.first_accordion_text_xpath)).getText(),
 					eaAdvancedAccordionUtils.TEXT.first_accordion_text);
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.first_accordion_text_xpath)).click();
 			driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.first_accordion_text_xpath)).click();
 			Thread.sleep(1000);
-			assertEquals(
+			softassert.assertEquals(
 					driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.first_accordion_des_xpath)).getText(),
 					eaAdvancedAccordionUtils.TEXT.first_accordion_des);
 			WebElement second_accordion_check = driver
@@ -63,11 +66,12 @@ public class EaAdvancedAccordion {
 			} else {
 				System.out.println("Second icon display failed !!");
 			}
-			assertEquals(driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.second_accordion_text_xpath))
-					.getText(), eaAdvancedAccordionUtils.TEXT.second_accordion_text);
+			softassert.assertEquals(driver
+					.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.second_accordion_text_xpath)).getText(),
+					eaAdvancedAccordionUtils.TEXT.second_accordion_text);
 			driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.second_accordion_text_xpath)).click();
 			Thread.sleep(1000);
-			assertEquals(
+			softassert.assertEquals(
 					driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.second_accordion_des_xpath)).getText(),
 					eaAdvancedAccordionUtils.TEXT.second_accordion_des);
 			WebElement first_accordion_check = driver
@@ -86,12 +90,12 @@ public class EaAdvancedAccordion {
 			} else {
 				System.out.println("Third icon display failed !!");
 			}
-			assertEquals(
+			softassert.assertEquals(
 					driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.third_accordion_text_xpath)).getText(),
 					eaAdvancedAccordionUtils.TEXT.third_accordion_text);
 			driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.third_accordion_text_xpath)).click();
 			Thread.sleep(1000);
-			assertEquals(
+			softassert.assertEquals(
 					driver.findElement(By.xpath(eaAdvancedAccordionUtils.Locator.third_accordion_des_xpath)).getText(),
 					eaAdvancedAccordionUtils.TEXT.third_accordion_des);
 			WebElement second_accordion_check2 = driver
@@ -101,6 +105,7 @@ public class EaAdvancedAccordion {
 			if (second_accordion_check2.isDisplayed() && first_accordion_check2.isDisplayed()) {
 				System.out.println("First or Second did not closed !!");
 			}
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

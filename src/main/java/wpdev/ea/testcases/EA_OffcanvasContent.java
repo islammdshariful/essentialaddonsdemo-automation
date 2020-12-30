@@ -22,13 +22,8 @@ public class EA_OffcanvasContent {
 	}
 	
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url+"offcanvas-content/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void offfcanvasContentTestCase() {
-		EaOffcanvasContent.eaOffcanvasContent(driver);
+		EaOffcanvasContent.eaOffcanvasContent(driver, "offcanvas-content/");
 		driver.close();
 	}
 }

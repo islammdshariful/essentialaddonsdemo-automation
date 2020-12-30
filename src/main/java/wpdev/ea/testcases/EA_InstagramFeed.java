@@ -22,13 +22,8 @@ public class EA_InstagramFeed {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "instagram-feed/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void instagramFeedTestCase() {
-		EaInstagramFeed.eaInstagramFeed(driver);
+		EaInstagramFeed.eaInstagramFeed(driver, "instagram-feed/");
 		driver.close();
 	}
 }

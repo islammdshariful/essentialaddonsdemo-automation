@@ -15,7 +15,7 @@ public class eaImageComparisonUtils {
 		public static final String documentation_title_id = "betterdocs-entry-title";
 		public static final String documentation_link_path = "//*[@id=\"post-17\"]/div/div/div/div/section[1]/div[4]/div/div[2]/div/div/section/div/div/div[2]/div/div/div[3]/div/div/a";
 	
-		public static final String image_comparison_box_xpath = "//*[@id=\"post-17\"]/div/div/div/div/section[2]/div/div/div/div/div/div";
+		public static final String image_comparison_box_xpath = "/html/body/div[3]/div[2]/div/div/div/main/article/div/div/div/div/section[2]/div/div/div/div/div/div/div/div/div/div[1]/div[2]";
 		public static final String before_xpath = "//*[@id=\"eael-image-comparison-23558b85\"]/div[1]/div[1]";
 		public static final String after_xpath = "//*[@id=\"eael-image-comparison-23558b85\"]/div[1]/div[2]";
 		

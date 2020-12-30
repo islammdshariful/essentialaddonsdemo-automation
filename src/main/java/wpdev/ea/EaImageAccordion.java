@@ -9,36 +9,34 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.asserts.SoftAssert;
 
 import wpdev.ea.utils.Config;
+import wpdev.ea.utils.eaDividerUtils;
 import wpdev.ea.utils.eaImageAccordionUtils;
 
 public class EaImageAccordion {
-	public static void eaOnePageNavigation(WebDriver driver, String url) {
+
+	public static void eaImageAccordion(WebDriver driver, String url) {
+		SoftAssert softassert = new SoftAssert();
 		driver.get(Config.url + url);
 
 		try {
-			if (Config.go_doc_page == 1) {
-				assertEquals(driver.getTitle(), eaImageAccordionUtils.TEXT.imageaccordion_title);
-				System.out.println("Page title passed !!");
 
-				driver.findElement(By.xpath(eaImageAccordionUtils.Locator.documentation_link_path)).click();
+			Config.checkdocandheadtitle.checkdoc(driver, eaImageAccordionUtils.TEXT.imageaccordion_title,
+					eaImageAccordionUtils.Locator.documentation_link_path,
+					eaImageAccordionUtils.TEXT.documentation_page);
 
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
-
-				assertEquals(driver.findElement(By.id(eaImageAccordionUtils.Locator.documentation_title_id)).getText(),
-						eaImageAccordionUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
-
-				driver.switchTo().window(tabs2.get(0));
-
-				Thread.sleep(1000);
-			}
+//			Config.closeNotifications.betterdocs(driver);
+			Config.closeNotifications.notificationBar(driver);
+			Config.closeNotifications.floatNotification(driver);
+			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1116)", "");
+//			js.executeScript("window.scrollBy(0,2000); behavior:'smooth';", "");
+			WebElement element = driver.findElement(By.xpath(
+					"/html/body/div[3]/div[2]/div/div/div/main/article/div/div/div/div/section[2]/div/div/div/div/div/section/div/div/div/div/div/div[2]/div/div"));
+			js.executeScript("arguments[0].scrollIntoView();", element);
 
 			Actions cursor = new Actions(driver);
 
@@ -71,13 +69,14 @@ public class EaImageAccordion {
 			WebElement fifth_des = driver.findElement(By.xpath(eaImageAccordionUtils.Locator.fifth_image_des_xpath));
 
 			// FIRST ACCORDION
+			Thread.sleep(2000);
 			cursor.moveToElement(first_image).build().perform();
 			Thread.sleep(2000);
 			if (first_header.isDisplayed()) {
 				if (!second_header.isDisplayed() && !third_header.isDisplayed() && !fourth_header.isDisplayed()
 						&& !fifth_header.isDisplayed()) {
-					assertEquals(first_header.getText(), eaImageAccordionUtils.TEXT.first_image_header_text);
-					assertEquals(first_des.getText(), eaImageAccordionUtils.TEXT.first_image_des_text);
+					softassert.assertEquals(first_header.getText(), eaImageAccordionUtils.TEXT.first_image_header_text);
+					softassert.assertEquals(first_des.getText(), eaImageAccordionUtils.TEXT.first_image_des_text);
 					System.out.println("First Image Accordion Passed !!");
 				}
 			}
@@ -88,8 +87,9 @@ public class EaImageAccordion {
 			if (second_header.isDisplayed()) {
 				if (!first_header.isDisplayed() && !third_header.isDisplayed() && !fourth_header.isDisplayed()
 						&& !fifth_header.isDisplayed()) {
-					assertEquals(second_header.getText(), eaImageAccordionUtils.TEXT.second_image_header_text);
-					assertEquals(second_des.getText(), eaImageAccordionUtils.TEXT.second_image_des_text);
+					softassert.assertEquals(second_header.getText(),
+							eaImageAccordionUtils.TEXT.second_image_header_text);
+					softassert.assertEquals(second_des.getText(), eaImageAccordionUtils.TEXT.second_image_des_text);
 					System.out.println("Second Image Accordion Passed !!");
 				}
 			}
@@ -100,8 +100,8 @@ public class EaImageAccordion {
 			if (third_header.isDisplayed()) {
 				if (!first_header.isDisplayed() && !second_header.isDisplayed() && !fourth_header.isDisplayed()
 						&& !fifth_header.isDisplayed()) {
-					assertEquals(third_header.getText(), eaImageAccordionUtils.TEXT.third_image_header_text);
-					assertEquals(third_des.getText(), eaImageAccordionUtils.TEXT.third_image_des_text);
+					softassert.assertEquals(third_header.getText(), eaImageAccordionUtils.TEXT.third_image_header_text);
+					softassert.assertEquals(third_des.getText(), eaImageAccordionUtils.TEXT.third_image_des_text);
 					System.out.println("Third Image Accordion Passed !!");
 				}
 			}
@@ -112,8 +112,9 @@ public class EaImageAccordion {
 			if (fourth_header.isDisplayed()) {
 				if (!second_header.isDisplayed() && !third_header.isDisplayed() && !first_header.isDisplayed()
 						&& !fifth_header.isDisplayed()) {
-					assertEquals(fourth_header.getText(), eaImageAccordionUtils.TEXT.fourth_image_header_text);
-					assertEquals(fourth_des.getText(), eaImageAccordionUtils.TEXT.fourth_image_des_text);
+					softassert.assertEquals(fourth_header.getText(),
+							eaImageAccordionUtils.TEXT.fourth_image_header_text);
+					softassert.assertEquals(fourth_des.getText(), eaImageAccordionUtils.TEXT.fourth_image_des_text);
 					System.out.println("Fourth Image Accordion Passed !!");
 				}
 			}
@@ -124,11 +125,12 @@ public class EaImageAccordion {
 			if (fifth_header.isDisplayed()) {
 				if (!second_header.isDisplayed() && !third_header.isDisplayed() && !fourth_header.isDisplayed()
 						&& !first_header.isDisplayed()) {
-					assertEquals(fifth_header.getText(), eaImageAccordionUtils.TEXT.fifth_image_header_text);
-					assertEquals(fifth_des.getText(), eaImageAccordionUtils.TEXT.fifth_image_des_text);
+					softassert.assertEquals(fifth_header.getText(), eaImageAccordionUtils.TEXT.fifth_image_header_text);
+					softassert.assertEquals(fifth_des.getText(), eaImageAccordionUtils.TEXT.fifth_image_des_text);
 					System.out.println("Fifth Image Accordion Passed !!");
 				}
 			}
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

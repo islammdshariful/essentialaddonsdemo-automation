@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-28T18:03:05 BDT" name="Default suite" finished-at="2020-10-28T18:03:23 BDT" duration-ms="17900">
+  <suite started-at="2020-12-30T14:08:53 BDT" name="Default suite" finished-at="2020-12-30T14:09:30 BDT" duration-ms="37196">
     <groups>
     </groups>
-    <test started-at="2020-10-28T18:03:05 BDT" name="Default test" finished-at="2020-10-28T18:03:23 BDT" duration-ms="17900">
-      <class name="wpdev.ea.testcases.EA_DualColorHeadline">
-        <test-method signature="invokeBrowser()[pri:0, instance:wpdev.ea.testcases.EA_DualColorHeadline@a1153bc]" started-at="2020-10-28T18:03:05 BDT" name="invokeBrowser" finished-at="2020-10-28T18:03:11 BDT" duration-ms="5755" status="PASS">
+    <test started-at="2020-12-30T14:08:53 BDT" name="Default test" finished-at="2020-12-30T14:09:30 BDT" duration-ms="37196">
+      <class name="wpdev.ea.testcases.EA_StaticProduct">
+        <test-method signature="invokeBrowser()[pri:0, instance:wpdev.ea.testcases.EA_StaticProduct@a1153bc]" started-at="2020-12-30T14:08:53 BDT" name="invokeBrowser" finished-at="2020-12-30T14:08:59 BDT" duration-ms="5606" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- invokeBrowser -->
-        <test-method signature="eaDualColorHeadlineTestCase()[pri:0, instance:wpdev.ea.testcases.EA_DualColorHeadline@a1153bc]" started-at="2020-10-28T18:03:11 BDT" name="eaDualColorHeadlineTestCase" finished-at="2020-10-28T18:03:23 BDT" depends-on-methods="wpdev.ea.testcases.EA_DualColorHeadline.invokeBrowser" duration-ms="12114" status="PASS">
+        <test-method signature="eventstaticproductTestCase()[pri:0, instance:wpdev.ea.testcases.EA_StaticProduct@a1153bc]" started-at="2020-12-30T14:08:59 BDT" name="eventstaticproductTestCase" finished-at="2020-12-30T14:09:30 BDT" depends-on-methods="wpdev.ea.testcases.EA_StaticProduct.invokeBrowser" duration-ms="31556" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- eaDualColorHeadlineTestCase -->
-      </class> <!-- wpdev.ea.testcases.EA_DualColorHeadline -->
+        </test-method> <!-- eventstaticproductTestCase -->
+      </class> <!-- wpdev.ea.testcases.EA_StaticProduct -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

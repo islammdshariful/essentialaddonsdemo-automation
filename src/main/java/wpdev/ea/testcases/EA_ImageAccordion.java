@@ -22,8 +22,8 @@ public class EA_ImageAccordion {
 
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void onePageNavigationTestCase() {
-		EaImageAccordion.eaOnePageNavigation(driver, "image-accordion/");
+	public void imageAccordionTestCase() {
+		EaImageAccordion.eaImageAccordion(driver, "image-accordion/");
 		driver.close();
 	}
 }

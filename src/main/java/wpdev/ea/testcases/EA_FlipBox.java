@@ -22,13 +22,8 @@ public class EA_FlipBox {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "flip-box/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eventflipboxTestCase() {
-		EaFlipBox.eaFlipBox(driver);
+		EaFlipBox.eaFlipBox(driver, "flip-box/");
 		driver.close();
 	}
 

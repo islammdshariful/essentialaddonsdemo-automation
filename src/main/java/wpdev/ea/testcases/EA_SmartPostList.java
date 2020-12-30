@@ -23,13 +23,8 @@ public class EA_SmartPostList {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "post-list/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void eaSmartPostListTestCase() {
-		EaSmartPostList.eaSmartPostList(driver);
+		EaSmartPostList.eaSmartPostList(driver, "post-list/");
 		driver.close();
 	}
 }

@@ -22,13 +22,8 @@ public class EA_TeamMember {
 	}
 
 	@Test(dependsOnMethods = "invokeBrowser")
-	public void openPage() {
-		driver.get(Config.url + "team-members/");
-	}
-
-	@Test(dependsOnMethods = "openPage")
 	public void teamMemberTestCase() {
-		EaTeamMember.eaTeamMember(driver);
-//		driver.close();
+		EaTeamMember.eaTeamMember(driver, "team-members/");
+		driver.close();
 	}
 }

@@ -21,5 +21,6 @@ public class eaContentTickerUtils {
 		public static final String template_using_shortcode_text_xpath = "//*[@id=\"eael-ticker-wrap-5107a1de\"]/div[2]/div[1]/div/div[4]/div";
 
 		public static final String navigation_button_xpath = "//*[@id=\"eael-ticker-wrap-5107a1de\"]/div[2]/div[2]/div[1]/i";
+		
 	}
 }

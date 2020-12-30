@@ -7,41 +7,46 @@ import java.util.ArrayList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.testng.asserts.SoftAssert;
 
+import wpdev.ea.utils.Config;
+import wpdev.ea.utils.eaDividerUtils;
 import wpdev.ea.utils.eaStickyVideoUtils;
 
 public class EaStickyVideo {
-	public static void eaStickyVideo(WebDriver driver) {
+	public static void eaStickyVideo(WebDriver driver, String url) {
 
-			try {
-				assertEquals(driver.getTitle(), eaStickyVideoUtils.TEXT.stickyvideo_page_title);
-				System.out.println("Page title passed !!");
+		SoftAssert softassert = new SoftAssert();
+		driver.get(Config.url + url);
 
-				driver.findElement(By.xpath(eaStickyVideoUtils.Locator.documentation_link_path)).click();
+		try {
+			Config.checkdocandheadtitle.checkdoc(driver, eaStickyVideoUtils.TEXT.stickyvideo_page_title,
+					eaStickyVideoUtils.Locator.documentation_link_path, eaStickyVideoUtils.TEXT.documentation_page);
 
-				ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs2.get(1));
+			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.betterdocs(driver);
+			Config.closeNotifications.notificationBar(driver);
+			
+			Thread.sleep(1000);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+//			js.executeScript("window.scrollBy(0,983)", "");
 
-				assertEquals(driver.findElement(By.id(eaStickyVideoUtils.Locator.documentation_title_id)).getText(),
-						eaStickyVideoUtils.TEXT.documentation_page);
-				System.out.println("Documentation link passed !!");
-				driver.close();
+//			driver.findElement(By.xpath(eaStickyVideoUtils.Locator.play_button_xpath)).click();
+//			Thread.sleep(1000);
+			
+			js.executeScript("window.scrollBy(0,1000)", "");
+			
+			Thread.sleep(2000);
+			
+//			driver.findElement(By.xpath(eaStickyVideoUtils.Locator.play_button_xpath)).click();
 
-				driver.switchTo().window(tabs2.get(0));
-//			
-				Thread.sleep(1000);
+			driver.findElement(By.xpath(eaStickyVideoUtils.Locator.close_button_xpath)).click();
+			System.out.println("Sticky video closed");
 
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-
-				js.executeScript("window.scrollBy(0,983)", "");
-				
-				driver.findElement(By.xpath(eaStickyVideoUtils.Locator.close_button_xpath)).click();
-				System.out.println("Sticky video closed");
-				
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

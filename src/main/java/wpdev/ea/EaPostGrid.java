@@ -9,36 +9,32 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.asserts.SoftAssert;
 
+import wpdev.ea.utils.Config;
+import wpdev.ea.utils.eaDividerUtils;
 import wpdev.ea.utils.eaPostGridUtils;
 
 public class EaPostGrid {
-	public static void eaPostGrid(WebDriver driver) {
-
+	public static void eaPostGrid(WebDriver driver, String url) {
+		SoftAssert softassert = new SoftAssert();
+		driver.get(Config.url + url);
 		try {
-			assertEquals(driver.getTitle(), eaPostGridUtils.TEXT.postgird_page_title);
-			System.out.println("Page title passed !!");
+			Config.checkdocandheadtitle.checkdoc(driver, eaPostGridUtils.TEXT.postgird_page_title,
+					eaPostGridUtils.Locator.documentation_link_path, eaPostGridUtils.TEXT.documentation_page);
 
-			driver.findElement(By.xpath(eaPostGridUtils.Locator.documentation_link_path)).click();
-
-			ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tabs2.get(1));
-
-			assertEquals(driver.findElement(By.id(eaPostGridUtils.Locator.documentation_title_id)).getText(),
-					eaPostGridUtils.TEXT.documentation_page);
-			System.out.println("Documentation link passed !!");
-			driver.close();
-
-			driver.switchTo().window(tabs2.get(0));
-
+//			Config.closeNotifications.betterdocs(driver);
+			Config.closeNotifications.notificationBar(driver);
+			Config.closeNotifications.floatNotification(driver);
+			Thread.sleep(1000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-
-			js.executeScript("window.scrollBy(0,1053)", "");
+			js.executeScript("window.scrollBy(0,1100)", "");
 
 			Thread.sleep(1000);
 			Actions mousehover = new Actions(driver);
 
 			// POST GRID
+			Thread.sleep(1000);
 			WebElement post = driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_hover_xpath));
 			mousehover.moveToElement(post).build().perform();
 			WebElement icon = driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_icon_xpath));
@@ -49,7 +45,7 @@ public class EaPostGrid {
 			String post_header = driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_header_xpath))
 					.getText();
 			driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_header_xpath)).click();
-			assertEquals(driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_page_title_xpath)).getText(),
+			softassert.assertEquals(driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_page_title_xpath)).getText(),
 					post_header);
 			System.out.println("Post grid First post passed !!");
 			driver.navigate().back();
