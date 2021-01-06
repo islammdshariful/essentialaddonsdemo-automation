@@ -25,14 +25,14 @@ public class EaFlipBox {
 					eaFlipBoxUtils.Locator.documentation_link_path, eaFlipBoxUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 			
 			Actions mousehover = new Actions(driver);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1109)", "");
+			js.executeScript("window.scrollBy(0,1174)", "");
 			Thread.sleep(1000);
 			// FLIP BOX 1
 			WebElement flip1_img = driver.findElement(By.xpath(eaFlipBoxUtils.Locator.flip1_front_img_xpth));

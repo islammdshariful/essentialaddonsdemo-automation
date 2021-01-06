@@ -1,4 +1,4 @@
-package wpdev.ea;
+ package wpdev.ea;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -26,11 +26,12 @@ public class EaCreativeButton {
 					eaCreativeButtonUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 //			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1118)", "");
+//			js.executeScript("window.scrollBy(0,1118)", "");
+			js.executeScript("window.scrollBy(0,1050)", "");
 
 			Thread.sleep(1000);
 

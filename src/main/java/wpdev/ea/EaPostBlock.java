@@ -24,12 +24,14 @@ public class EaPostBlock {
 					eaPostBlockUtils.Locator.documentation_link_path, eaPostBlockUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 //			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1114)", "");
+			WebElement element = driver.findElement(By.xpath("//*[@id=\"post-1347\"]/div/div/div/div/section[2]/div/div/div/div/div/section/div/div/div[2]/div/div/div[2]/div/div"));
+//			js.executeScript("window.scrollBy(0,1089)", "");
+			js.executeScript("arguments[0].scrollIntoView();", element);
 
 			Thread.sleep(1000);
 			Actions mousehover = new Actions(driver);
@@ -38,6 +40,8 @@ public class EaPostBlock {
 			WebElement icon = driver.findElement(By.xpath(eaPostBlockUtils.Locator.first_post_icon_xpath));
 			if (icon.isDisplayed()) {
 				System.out.println("Post Icon passed !!");
+			}else {
+				System.out.println("Post Icon NOT passed !!");
 			}
 
 			String post_title = driver.findElement(By.xpath(eaPostBlockUtils.Locator.first_post_header_xpath))
@@ -51,7 +55,10 @@ public class EaPostBlock {
 					.findElement(By.xpath(eaPostBlockUtils.Locator.first_post_author_image_xpath));
 			if (aurthor_img.isDisplayed()) {
 				System.out.println("Aurthor Image Passed !!");
+			}else {
+				System.out.println("Aurthor Image NOT Passed !!");
 			}
+			
 			String aurthor_name = driver.findElement(By.xpath(eaPostBlockUtils.Locator.first_post_author_name_xpath))
 					.getText();
 			driver.findElement(By.xpath(eaPostBlockUtils.Locator.first_post_author_name_xpath)).click();

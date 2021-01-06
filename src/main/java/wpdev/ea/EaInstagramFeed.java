@@ -48,7 +48,7 @@ public class EaInstagramFeed {
 
 	
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1133)", "");
+			js.executeScript("window.scrollBy(0,1156)", "");
 
 			Thread.sleep(1000);
 

@@ -26,8 +26,8 @@ public class EaToggle {
 					eaToggleUtils.Locator.documentation_link_xpath, eaToggleUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;

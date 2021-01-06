@@ -23,9 +23,9 @@ public class EaStickyVideo {
 			Config.checkdocandheadtitle.checkdoc(driver, eaStickyVideoUtils.TEXT.stickyvideo_page_title,
 					eaStickyVideoUtils.Locator.documentation_link_path, eaStickyVideoUtils.TEXT.documentation_page);
 
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.floatNotification(driver);
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 			
 			Thread.sleep(1000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;

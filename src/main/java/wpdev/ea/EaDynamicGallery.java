@@ -34,12 +34,18 @@ public class EaDynamicGallery {
 
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1010)", "");
+			js.executeScript("window.scrollBy(0,1107)", "");
 
 			Thread.sleep(2000);
 			// ALL TAB
 			driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.all_tab_xpath)).click();
 			Thread.sleep(2000);
+			WebElement all_tab_image = driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.all_tab_image_xpath));
+			if(all_tab_image.isDisplayed()) {
+				System.out.println("All tab image passed !!");
+			}else {
+				System.out.println("All tab image NOT passed !!");
+			}
 			String all_title = driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.all_tab_header_xpath))
 					.getText();
 			System.out.println(all_title);
@@ -49,16 +55,16 @@ public class EaDynamicGallery {
 					all_title);
 			System.out.println("All Header Passed");
 			driver.navigate().back();
-//			assertEquals(driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.all_tab_header_xpath)).getText(), eaDynamicGalleryUtils.TEXT.all_tab_header_text);
-//			assertEquals(driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.all_tab_des_xpath)).getText(), eaDynamicGalleryUtils.TEXT.all_tab_des_text);
-//			WebElement all_tab_image = driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.all_tab_image_xpath));
-//			if(all_tab_image.isDisplayed()) {
-//				System.out.println("All tab image passed !!");
-//			}
 
 			// ELEMENTOR TAB
 			driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.elementor_tab_xpath)).click();
 			Thread.sleep(2000);
+			WebElement elementor_tab_image = driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.elementor_tab_image_xpath));
+			if(elementor_tab_image.isDisplayed()) {
+				System.out.println("Elementor tab image passed !!");
+			}else {
+				System.out.println("Elementor tab image NOT passed !!");
+			}
 			String elementor_title = driver
 					.findElement(By.xpath(eaDynamicGalleryUtils.Locator.elementor_tab_header_xpath)).getText();
 			driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.elementor_tab_header_xpath)).click();
@@ -67,16 +73,16 @@ public class EaDynamicGallery {
 					elementor_title);
 			System.out.println("Elementor Header Passed");
 			driver.navigate().back();
-//			assertEquals(driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.elementor_tab_header_xpath)).getText(), eaDynamicGalleryUtils.TEXT.elementor_tab_header_text);
-//			assertEquals(driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.elementor_tab_des_xpath)).getText(), eaDynamicGalleryUtils.TEXT.elementor_tab_des_text);
-//			WebElement elementor_tab_image = driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.elementor_tab_image_xpath));
-//			if(elementor_tab_image.isDisplayed()) {
-//				System.out.println("Elementor tab image passed !!");
-//			}
 
 			// WORDPRESS TAB
 			driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.wordpress_tab_xpath)).click();
 			Thread.sleep(2000);
+			WebElement wordpress_tab_image = driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.wordpress_tab_image_xpath));
+			if(wordpress_tab_image.isDisplayed()) {
+				System.out.println("WORDPRESS tab image passed !!");
+			}else {
+				System.out.println("WORDPRESS tab image NOT passed !!");
+			}
 			String wordpress_title = driver
 					.findElement(By.xpath(eaDynamicGalleryUtils.Locator.wordpress_tab_header_xpath)).getText();
 			driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.wordpress_tab_header_xpath)).click();
@@ -88,6 +94,12 @@ public class EaDynamicGallery {
 			// TEMPLATES TAB
 			driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.templates_tab_xpath)).click();
 			Thread.sleep(2000);
+			WebElement template_tab_image = driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.templates_tab_image_xpath));
+			if(template_tab_image.isDisplayed()) {
+				System.out.println("TEMPLATES tab image passed !!");
+			}else {
+				System.out.println("TEMPLATES tab image NOT passed !!");
+			}
 			String templates_title = driver
 					.findElement(By.xpath(eaDynamicGalleryUtils.Locator.wordpress_tab_header_xpath)).getText();
 			driver.findElement(By.xpath(eaDynamicGalleryUtils.Locator.templates_tab_header_xpath)).click();

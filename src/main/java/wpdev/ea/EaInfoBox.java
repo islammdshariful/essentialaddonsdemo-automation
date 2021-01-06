@@ -21,9 +21,9 @@ public class EaInfoBox {
 			Config.checkdocandheadtitle.checkdoc(driver, eaInfoBoxUtils.TEXT.flipbox_page_title,
 					eaInfoBoxUtils.Locator.documentation_link_path, eaInfoBoxUtils.TEXT.documentation_page);
 			
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.floatNotification(driver);
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 			
 			Thread.sleep(1000);
 

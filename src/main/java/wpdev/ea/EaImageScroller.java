@@ -27,12 +27,12 @@ public class EaImageScroller {
 					eaImageScrollerUtils.Locator.documentation_link_path, eaImageScrollerUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,877); behavior:'smooth';", "");
+			js.executeScript("window.scrollBy(0,957); behavior:'smooth';", "");
 
 			WebElement first_image = driver.findElement(By.xpath(eaImageScrollerUtils.Locator.first_image_xpath));
 			WebElement second_image = driver.findElement(By.xpath(eaImageScrollerUtils.Locator.second_image_xpath));

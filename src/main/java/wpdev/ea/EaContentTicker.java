@@ -27,7 +27,8 @@ public class EaContentTicker {
 			Config.closeNotifications.notificationBar(driver);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1043)", "");
+//			js.executeScript("window.scrollBy(0,1043)", "");
+			js.executeScript("window.scrollBy(0,971)", "");
 
 			Actions mousehover = new Actions(driver);
 

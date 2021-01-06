@@ -24,7 +24,7 @@ public class EaStaticProduct {
 					eaStaticProductUtils.Locator.documentation_link_path, eaStaticProductUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.floatNotification(driver);
-			Config.closeNotifications.betterdocs(driver);
+//			Config.closeNotifications.betterdocs(driver);
 //			Config.closeNotifications.notificationBar(driver);
 //			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);

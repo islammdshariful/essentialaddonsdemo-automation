@@ -36,7 +36,7 @@ public class EaCallToAction {
 
 			
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 //			Config.closeNotifications.floatNotification(driver);
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;

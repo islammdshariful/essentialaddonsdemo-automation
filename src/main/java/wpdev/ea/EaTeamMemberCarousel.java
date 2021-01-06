@@ -24,9 +24,9 @@ public class EaTeamMemberCarousel {
 			Config.checkdocandheadtitle.checkdoc(driver, eaTeamMemberCarouselUtils.TEXT.teammembercarousel_page_title,
 					eaTeamMemberCarouselUtils.Locator.documentation_link_path, eaTeamMemberCarouselUtils.TEXT.documentation_page);
 
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.floatNotification(driver);
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 			
 			Thread.sleep(1000);
 

@@ -38,13 +38,13 @@ public class EaInteractivePromo {
 					eaInteractivePromoUtils.Locator.documentation_link_path, eaInteractivePromoUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1039)", "");
-			Thread.sleep(2000);
+			js.executeScript("window.scrollBy(0,1091)", "");
+			Thread.sleep(1000);
 
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(ExpectedConditions.or(

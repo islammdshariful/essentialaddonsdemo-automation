@@ -36,7 +36,7 @@ public class EaTestimonials {
 
 //			Config.closeNotifications.floatNotification(driver);
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 			
 			Thread.sleep(1000);
 

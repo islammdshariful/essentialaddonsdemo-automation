@@ -21,8 +21,8 @@ public class EaLogoCarousel {
 					eaLogoCarouselUtils.Locator.documentation_link_path, eaLogoCarouselUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
 

@@ -24,9 +24,9 @@ public class EaTooltip {
 			Config.checkdocandheadtitle.checkdoc(driver, eaTooltipUtils.TEXT.tooltip_page_title,
 					eaTooltipUtils.Locator.documentation_link_path, eaTooltipUtils.TEXT.documentation_page);
 
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.floatNotification(driver);
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 			
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;

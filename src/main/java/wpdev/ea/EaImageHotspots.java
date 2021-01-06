@@ -23,13 +23,13 @@ public class EaImageHotspots {
 				Config.checkdocandheadtitle.checkdoc(driver, eaImageHotspotsUtils.TEXT.imagehotspots_title,
 						eaImageHotspotsUtils.Locator.documentation_link_path, eaImageHotspotsUtils.TEXT.documentation_page);
 
-				Config.closeNotifications.floatNotification(driver);
+//				Config.closeNotifications.floatNotification(driver);
 //				Config.closeNotifications.betterdocs(driver);
-				Config.closeNotifications.notificationBar(driver);
+//				Config.closeNotifications.notificationBar(driver);
 //				
 
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,1105)", "");
+				js.executeScript("window.scrollBy(0,1176)", "");
 //				WebElement element = driver.findElement(By.xpath("//*[@id=\"post-2956\"]/div/div/div/div/section[3]/div/div/div/div/div/div/div/div/div/span[1]/span/span/span"));
 //				js.executeScript("arguments[0].scrollIntoView();", element);
 				

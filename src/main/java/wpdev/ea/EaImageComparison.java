@@ -36,8 +36,8 @@ public class EaImageComparison {
 					eaImageComparisonUtils.Locator.documentation_link_path, eaImageComparisonUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 //		js.executeScript("window.scrollBy(0,1120)", "");

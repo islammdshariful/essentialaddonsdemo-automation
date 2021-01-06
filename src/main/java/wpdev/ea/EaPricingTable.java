@@ -24,8 +24,8 @@ public class EaPricingTable {
 					eaPricingTableUtils.Locator.documentation_link_path, eaPricingTableUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;

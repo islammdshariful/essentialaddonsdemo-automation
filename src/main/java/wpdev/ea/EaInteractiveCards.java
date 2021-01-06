@@ -26,16 +26,16 @@ public class EaInteractiveCards {
 					eaInteractiveCardsUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1026)", "");
+			js.executeScript("window.scrollBy(0,1042)", "");
 
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(eaInteractiveCardsUtils.Locator.first_card_xpath)).click();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			// OPEN FIRST CARD
 			softassert.assertEquals(driver.findElement(By.xpath(eaInteractiveCardsUtils.Locator.first_header_xpath)).getText(),
 					eaInteractiveCardsUtils.TEXT.first_header_text);
@@ -45,7 +45,7 @@ public class EaInteractiveCards {
 					.getText(), eaInteractiveCardsUtils.TEXT.first_card_readmore_button_text);
 
 			driver.findElement(By.xpath(eaInteractiveCardsUtils.Locator.second_card_xpath)).click();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			// OPEN SECOND CARD
 			softassert.assertEquals(driver.findElement(By.xpath(eaInteractiveCardsUtils.Locator.second_header_xpath)).getText(),
 					eaInteractiveCardsUtils.TEXT.second_header_text);
@@ -59,7 +59,7 @@ public class EaInteractiveCards {
 //			SnapComImg.snap(driver, eaInteractiveCardsUtils.Locator.first_image_xpath, "InteractiveCard/input.png");
 			SnapComImg.comparison(driver, eaInteractiveCardsUtils.Locator.first_image_xpath,
 					"InteractiveCard/input.png", "InteractiveCard/output/output.png");
-			Thread.sleep(1000);
+//			Thread.sleep(1000);
 			// CLOSE CARDS
 			driver.findElement(By.xpath(eaInteractiveCardsUtils.Locator.first_close_button_xpath)).click();
 			System.out.println("First Card Closed !!");

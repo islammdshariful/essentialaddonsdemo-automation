@@ -64,12 +64,12 @@ public class EaFilterableGallery {
 					eaFilterableGalleryUtils.Locator.documentation_link_path, eaFilterableGalleryUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1062)", "");
+			js.executeScript("window.scrollBy(0,1068)", "");
 
 			// HEADER
 			assertEquals(driver.findElement(By.xpath(eaFilterableGalleryUtils.Locator.header_text_xpath)).getText(),

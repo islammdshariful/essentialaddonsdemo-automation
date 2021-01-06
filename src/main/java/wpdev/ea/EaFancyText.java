@@ -23,11 +23,11 @@ public class EaFancyText {
 				eaFancyTextUtils.Locator.documentation_link_path, eaFancyTextUtils.TEXT.documentation_page);
 
 //		Config.closeNotifications.betterdocs(driver);
-		Config.closeNotifications.notificationBar(driver);
+//		Config.closeNotifications.notificationBar(driver);
 //		Config.closeNotifications.floatNotification(driver);
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,989); behavior:'smooth';", "");
+		js.executeScript("window.scrollBy(0,949); behavior:'smooth';", "");
 
 		// HEADER
 		softassert.assertEquals(driver.findElement(By.xpath(eaFancyTextUtils.Locator.header_text_xpath)).getText(),

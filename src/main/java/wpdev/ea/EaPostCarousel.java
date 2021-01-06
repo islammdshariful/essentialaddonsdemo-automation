@@ -24,27 +24,28 @@ public class EaPostCarousel {
 					eaPostCarouselUtils.Locator.documentation_link_path, eaPostCarouselUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 //			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1031)", "");
+			js.executeScript("window.scrollBy(0,1005)", "");
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(eaPostCarouselUtils.Locator.dot_xpath)).click();
 			Thread.sleep(1000);
 			Actions cursor = new Actions(driver);
 			WebElement post_name = driver.findElement(By.xpath(eaPostCarouselUtils.Locator.post_header_xpath));
-			Thread.sleep(1000);
-			cursor.moveToElement(post_name).build().perform();
+//			Thread.sleep(1000);
+//			cursor.moveToElement(post_name).build().perform();
 			String name = post_name.getText();
 			System.out.println("Post name is: " + name);
 			driver.findElement(By.xpath(eaPostCarouselUtils.Locator.dot_xpath)).click();
 			Thread.sleep(1000);
-			WebElement post = driver.findElement(By.xpath(eaPostCarouselUtils.Locator.post_xpth));
+			driver.findElement(By.xpath(eaPostCarouselUtils.Locator.post_header_xpath)).click();
+//			WebElement post = driver.findElement(By.xpath(eaPostCarouselUtils.Locator.post_header_xpath));
 			Thread.sleep(1000);
-			cursor.moveToElement(post).build().perform();
-			post.click();
+//			cursor.moveToElement(post).click().build().perform();
+//			post.click();
 			softassert.assertEquals(driver.findElement(By.xpath(eaPostCarouselUtils.Locator.post_page_xpath)).getText(),
 					name);
 			driver.navigate().back();

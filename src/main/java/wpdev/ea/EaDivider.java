@@ -23,7 +23,7 @@ public class EaDivider {
 					eaDividerUtils.Locator.documentation_link_path, eaDividerUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 //			Config.closeNotifications.floatNotification(driver);
 			Thread.sleep(1000);
 

@@ -20,9 +20,9 @@ public class EaPriceMenu {
 			Config.checkdocandheadtitle.checkdoc(driver, eaPriceMenuUtils.TEXT.pricemenu_page_title,
 					eaPriceMenuUtils.Locator.documentation_link_path, eaPriceMenuUtils.TEXT.documentation_page);
 			
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.floatNotification(driver);
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.notificationBar(driver);
 //			
 			
 			Thread.sleep(1000);

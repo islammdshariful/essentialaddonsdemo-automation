@@ -128,9 +128,9 @@ public class EA_ALL {
 		EaDualColorHeadline.eaDualColorHeadline(driver, "dual-color-headline/");
 		System.out.println("--------DUAL COLOR HEADLINE PASSED--------");
 		
-//		System.out.println("--------DYNAMIC GALLERY--------");
-//		EaDynamicGallery.eaDynamicGallery(driver, "dynamic-gallery/");
-//		System.out.println("--------DYNAMIC GALLERY PASSED--------");
+		System.out.println("--------DYNAMIC GALLERY--------");
+		EaDynamicGallery.eaDynamicGallery(driver, "dynamic-gallery/");
+		System.out.println("--------DYNAMIC GALLERY PASSED--------");
 		
 //		System.out.println("--------EVENT CALENDAR--------");
 //		EaEventCalendar.eaEventCalender(driver);
@@ -197,13 +197,13 @@ public class EA_ALL {
 		EaOnePageNavigation.eaOnePageNavigation(driver, "one-page-nav/");
 		System.out.println("--------ONE PAGE NAVIGATION PASSED--------");
 		
-//		System.out.println("--------POST BLOCK--------");
-//		EaPostBlock.eaPostBlock(driver, "post-block/");
-//		System.out.println("--------POST BLOCK PASSED--------");
+		System.out.println("--------POST BLOCK--------");
+		EaPostBlock.eaPostBlock(driver, "post-block/");
+		System.out.println("--------POST BLOCK PASSED--------");
 		
-//		System.out.println("--------POST CAROUSEL--------");
-//		EaPostCarousel.eaPostCarousel(driver, "post-carousel/");
-//		System.out.println("--------POST CAROUSEL PASSED--------");
+		System.out.println("--------POST CAROUSEL--------");
+		EaPostCarousel.eaPostCarousel(driver, "post-carousel/");
+		System.out.println("--------POST CAROUSEL PASSED--------");
 		
 //		System.out.println("--------POST GRID--------");
 //		EaPostGrid.eaPostGrid(driver, "post-grid/");
