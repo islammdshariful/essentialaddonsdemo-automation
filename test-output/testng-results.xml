@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-01-06T09:13:27 BDT" name="Default suite" finished-at="2021-01-06T09:14:00 BDT" duration-ms="33413">
+  <suite started-at="2021-01-17T11:57:37 BDT" name="Default suite" finished-at="2021-01-17T11:58:43 BDT" duration-ms="66800">
     <groups>
     </groups>
-    <test started-at="2021-01-06T09:13:27 BDT" name="Default test" finished-at="2021-01-06T09:14:00 BDT" duration-ms="33413">
-      <class name="wpdev.ea.testcases.EA_PostCarousel">
-        <test-method signature="invokeBrowser()[pri:0, instance:wpdev.ea.testcases.EA_PostCarousel@a1153bc]" started-at="2021-01-06T09:13:27 BDT" name="invokeBrowser" finished-at="2021-01-06T09:13:32 BDT" duration-ms="5653" status="PASS">
+    <test started-at="2021-01-17T11:57:37 BDT" name="Default test" finished-at="2021-01-17T11:58:43 BDT" duration-ms="66800">
+      <class name="wpdev.ea.testcases.EA_SmartPostList">
+        <test-method signature="invokeBrowser()[pri:0, instance:wpdev.ea.testcases.EA_SmartPostList@a1153bc]" started-at="2021-01-17T11:57:37 BDT" name="invokeBrowser" finished-at="2021-01-17T11:57:42 BDT" duration-ms="5647" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- invokeBrowser -->
-        <test-method signature="postCarouselTestCase()[pri:0, instance:wpdev.ea.testcases.EA_PostCarousel@a1153bc]" started-at="2021-01-06T09:13:32 BDT" name="postCarouselTestCase" finished-at="2021-01-06T09:14:00 BDT" depends-on-methods="wpdev.ea.testcases.EA_PostCarousel.invokeBrowser" duration-ms="27722" status="PASS">
+        <test-method signature="eaSmartPostListTestCase()[pri:0, instance:wpdev.ea.testcases.EA_SmartPostList@a1153bc]" started-at="2021-01-17T11:57:42 BDT" name="eaSmartPostListTestCase" finished-at="2021-01-17T11:58:43 BDT" depends-on-methods="wpdev.ea.testcases.EA_SmartPostList.invokeBrowser" duration-ms="61117" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- postCarouselTestCase -->
-      </class> <!-- wpdev.ea.testcases.EA_PostCarousel -->
+        </test-method> <!-- eaSmartPostListTestCase -->
+      </class> <!-- wpdev.ea.testcases.EA_SmartPostList -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

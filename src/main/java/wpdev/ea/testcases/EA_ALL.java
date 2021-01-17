@@ -132,10 +132,6 @@ public class EA_ALL {
 		EaDynamicGallery.eaDynamicGallery(driver, "dynamic-gallery/");
 		System.out.println("--------DYNAMIC GALLERY PASSED--------");
 		
-//		System.out.println("--------EVENT CALENDAR--------");
-//		EaEventCalendar.eaEventCalender(driver);
-//		System.out.println("--------EVENT CALENDAR PASSED--------");
-		
 		System.out.println("--------FANCY TEXT--------");
 		EaFancyText.eaFancyText(driver, "fancy-text/");
 		System.out.println("--------FANCY TEXT PASSED--------");
@@ -163,7 +159,6 @@ public class EA_ALL {
 		System.out.println("--------IMAGE HOTSPOTS--------");
 		EaImageHotspots.eaEaImageHotspots(driver, "image-hotspots/");
 		System.out.println("--------IMAGE HOTSPOTS PASSSED--------");
-		
 		
 		System.out.println("--------INFO BOX--------");
 		EaInfoBox.eaInfoBox(driver, "info-box/");
@@ -197,22 +192,6 @@ public class EA_ALL {
 		EaOnePageNavigation.eaOnePageNavigation(driver, "one-page-nav/");
 		System.out.println("--------ONE PAGE NAVIGATION PASSED--------");
 		
-		System.out.println("--------POST BLOCK--------");
-		EaPostBlock.eaPostBlock(driver, "post-block/");
-		System.out.println("--------POST BLOCK PASSED--------");
-		
-		System.out.println("--------POST CAROUSEL--------");
-		EaPostCarousel.eaPostCarousel(driver, "post-carousel/");
-		System.out.println("--------POST CAROUSEL PASSED--------");
-		
-//		System.out.println("--------POST GRID--------");
-//		EaPostGrid.eaPostGrid(driver, "post-grid/");
-//		System.out.println("--------POST GRID PASSED--------");
-		
-//		System.out.println("--------POST TIMELINE--------");
-//		EaPostTimeline.eaPostTimeline(driver, "post-timeline/");
-//		System.out.println("--------POST TIMELINE PASSED--------");
-		
 		System.out.println("--------PRICE MENU--------");
 		EaPriceMenu.eaPriceMenu(driver, "price-menu/");
 		System.out.println("--------PRICE MENU PASSED--------");
@@ -228,11 +207,7 @@ public class EA_ALL {
 		System.out.println("--------PROTECTED CONTENT--------");
 		EaProtectedContent.eaProtectedContent(driver, "protected-content/");
 		System.out.println("--------PROTECTED CONTENT PASSSED--------");
-		
-//		System.out.println("--------SMART POST LIST--------");
-//		EaSmartPostList.eaSmartPostList(driver, "post-list/");
-//		System.out.println("--------SMART POST PASSED--------");
-		
+				
 		System.out.println("--------STATIC PRODUCT--------");
 		EaStaticProduct.eaStaticProduct(driver, "static-product/");
 		System.out.println("--------STATIC PRODUCT PASSED--------");
@@ -264,6 +239,31 @@ public class EA_ALL {
 		System.out.println("-------TOOLTIP--------");
 		EaTooltip.eaTooltip(driver, "tooltip/");
 		System.out.println("-------TOOLTIP PASSED--------");
+		
+		System.out.println("--------POST BLOCK--------");
+		EaPostBlock.eaPostBlock(driver, "post-block/");
+		System.out.println("--------POST BLOCK PASSED--------");
+		
+		System.out.println("--------POST CAROUSEL--------");
+		EaPostCarousel.eaPostCarousel(driver, "post-carousel/");
+		System.out.println("--------POST CAROUSEL PASSED--------");
+		
+		System.out.println("--------POST GRID--------");
+		EaPostGrid.eaPostGrid(driver, "post-grid/");
+		System.out.println("--------POST GRID PASSED--------");
+		
+		System.out.println("--------POST TIMELINE--------");
+		EaPostTimeline.eaPostTimeline(driver, "post-timeline/");
+		System.out.println("--------POST TIMELINE PASSED--------");
+		
+		System.out.println("--------SMART POST LIST--------");
+		EaSmartPostList.eaSmartPostList(driver, "post-list/");
+		System.out.println("--------SMART POST PASSED--------");
+		
+//		System.out.println("--------EVENT CALENDAR--------");
+//		EaEventCalendar.eaEventCalender(driver);
+//		System.out.println("--------EVENT CALENDAR PASSED--------");
+		
 		driver.close();
 	}
 }

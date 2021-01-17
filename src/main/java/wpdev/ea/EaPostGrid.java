@@ -24,8 +24,9 @@ public class EaPostGrid {
 					eaPostGridUtils.Locator.documentation_link_path, eaPostGridUtils.TEXT.documentation_page);
 
 //			Config.closeNotifications.betterdocs(driver);
-			Config.closeNotifications.notificationBar(driver);
-			Config.closeNotifications.floatNotification(driver);
+//			Config.closeNotifications.notificationBar(driver);
+//			Config.closeNotifications.floatNotification(driver);
+			
 			Thread.sleep(1000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,1100)", "");
@@ -40,16 +41,25 @@ public class EaPostGrid {
 			WebElement icon = driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_icon_xpath));
 			if (icon.isDisplayed()) {
 				System.out.println("Post grid icon passed !!");
+			}else {
+				System.out.println("Post grid icon NOT passed !!");
 			}
 
 			String post_header = driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_header_xpath))
 					.getText();
 			driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_header_xpath)).click();
+			Thread.sleep(1000);
 			softassert.assertEquals(driver.findElement(By.xpath(eaPostGridUtils.Locator.first_post_page_title_xpath)).getText(),
 					post_header);
-			System.out.println("Post grid First post passed !!");
+			
 			driver.navigate().back();
 
+			js.executeScript("window.scrollBy(0,1725)", "");
+	
+			driver.findElement(By.id(eaPostGridUtils.Locator.loadmore_button_id)).click();
+			
+			Thread.sleep(1000);
+			softassert.assertAll();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
