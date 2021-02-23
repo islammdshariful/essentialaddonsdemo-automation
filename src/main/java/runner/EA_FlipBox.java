@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_FlipBox {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,10 +21,11 @@ public class EA_FlipBox {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void eventflipboxTestCase() {
+		invokeBrowser();
 		EaFlipBox.eaFlipBox(driver, "flip-box/");
-		driver.close();
+//		driver.close();
 	}
 
 }

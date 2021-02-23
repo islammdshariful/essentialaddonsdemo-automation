@@ -21,9 +21,10 @@ public class EA_InteractiveCards {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void interactiveCardTestCase() {
+		invokeBrowser();
 		EaInteractiveCards.eaInteractiveCards(driver, "interactive-cards/");
-		driver.close();
+//		driver.close();
 	}
 }

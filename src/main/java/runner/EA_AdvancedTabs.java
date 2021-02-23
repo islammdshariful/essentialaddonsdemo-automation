@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_AdvancedTabs {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,11 @@ public class EA_AdvancedTabs {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+//	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void eventadvanceaccordionTestCase() {
+		invokeBrowser();
 		EaAdvancedTabs.eaAdvanceTab(driver, "advanced-tabs/");
-		driver.close();
+//		driver.close();
 	}
 }

@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_OnePageNavigation {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_OnePageNavigation {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void onePageNavTestCase() {
+		invokeBrowser();
 		EaOnePageNavigation.eaOnePageNavigation(driver, "one-page-nav/");
-		driver.close();
+//		driver.close();
 	}
 }

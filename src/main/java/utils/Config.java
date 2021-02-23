@@ -3,6 +3,7 @@ package wpdev.ea.utils;
 import static org.testng.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class Config {
 	public static final String url = "https://essential-addons.com/elementor/";
 //	public static final String url = "http://wpdemosite.local/";
 	public static final int go_doc_page = 1;
+
 	
 	public static class checkdocandheadtitle {
 		
@@ -58,6 +60,14 @@ public class Config {
 					destext);
 			System.out.println("Header text passed !!");
 		}
+	}
+
+	public static void invokeBrowser(WebDriver driver) {
+		driver = wpdev.ea.utils.DriverManager.driver;
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 	
 	public static class closeNotifications{

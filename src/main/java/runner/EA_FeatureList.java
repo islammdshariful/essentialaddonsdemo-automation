@@ -13,7 +13,7 @@ public class EA_FeatureList {
 
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -22,9 +22,10 @@ public class EA_FeatureList {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void FeatureLisTestCase() {
+		invokeBrowser();
 		EaFeatureList.eaFeatureList(driver, "feature-list/");
-		driver.close();
+//		driver.close();
 	}
 }

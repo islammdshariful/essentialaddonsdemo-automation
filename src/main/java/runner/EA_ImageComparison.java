@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_ImageComparison {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,10 +21,11 @@ public class EA_ImageComparison {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void imageComparisonTestCase() {
+		invokeBrowser();
 		EaImageComparison.eaImageComparison(driver, "image-comparison/");
-		driver.close();
+//		driver.close();
 	}
 	
 }

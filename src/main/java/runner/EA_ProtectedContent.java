@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_ProtectedContent {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_ProtectedContent {
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void protectedContent() {
+		invokeBrowser();
 		EaProtectedContent.eaProtectedContent(driver, "protected-content/");
-		driver.close();
+//		driver.close();
 	}
 }

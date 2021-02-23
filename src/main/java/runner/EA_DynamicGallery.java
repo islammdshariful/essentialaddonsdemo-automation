@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_DynamicGallery {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_DynamicGallery {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void dynamicGalleryTestCase() {
+		invokeBrowser();
 		EaDynamicGallery.eaDynamicGallery(driver, "dynamic-gallery/");
-		driver.close();
+//		driver.close();
 	}
 }

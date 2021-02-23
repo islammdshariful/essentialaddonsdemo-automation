@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_ImageScroller {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_ImageScroller {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void imageHotspotsTestCase() {
+		invokeBrowser();
 		EaImageScroller.eaImageScroller(driver, "image-scroller/");
-		driver.close();
+//		driver.close();
 	}
 }

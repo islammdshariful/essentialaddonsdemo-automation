@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_ImageHotspots {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_ImageHotspots {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void imageHotspotsTestCase() {
+		invokeBrowser();
 		EaImageHotspots.eaEaImageHotspots(driver, "image-hotspots/");
-		driver.close();
+//		driver.close();
 	}
 }

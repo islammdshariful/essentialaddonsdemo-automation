@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_PricingTable {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_PricingTable {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void eventinfoboxTestCase() {
+		invokeBrowser();
 		EaPricingTable.eaPricingTable(driver, "pricing-table/");
-		driver.close();
+//		driver.close();
 	}
 }

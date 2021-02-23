@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_CallToAction {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -20,9 +20,10 @@ public class EA_CallToAction {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void eventinfoboxTestCase() {
+		invokeBrowser();
 		EaCallToAction.eaCallToAction(driver, "call-to-action/");
-		driver.close();
+//		driver.close();
 	}
 }

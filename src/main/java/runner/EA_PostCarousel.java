@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_PostCarousel {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_PostCarousel {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void postCarouselTestCase() {
+		invokeBrowser();
 		EaPostCarousel.eaPostCarousel(driver, "post-carousel/");
-		driver.close();
+//		driver.close();
 	}
 }

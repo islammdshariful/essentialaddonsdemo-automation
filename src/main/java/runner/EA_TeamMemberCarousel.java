@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_TeamMemberCarousel {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_TeamMemberCarousel {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void teamMemberCarouselTestCase() {
+		invokeBrowser();
 		EaTeamMemberCarousel.eaTeamMemberCarousel(driver, "team-members-carousel/");
-		driver.close();
+//		driver.close();
 	}
 }

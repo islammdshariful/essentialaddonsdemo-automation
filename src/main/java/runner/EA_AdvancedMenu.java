@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_AdvancedMenu {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -22,9 +22,11 @@ public class EA_AdvancedMenu {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+//	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void advancedMenuTestCase() {
+		invokeBrowser();
 		EaAdvancedMenu.eaAdvancedMenu(driver, "advanced-menu/");
-		driver.close();
+//		driver.close();
 	}
 }

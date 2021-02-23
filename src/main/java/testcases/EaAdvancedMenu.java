@@ -29,8 +29,8 @@ public class EaAdvancedMenu {
 			Thread.sleep(3000);
 			// NORMAL MENU
 			// HOME
-			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_home_id)).getText(),
-					eaAdvancedMenuUtils.TEXT.n_menu_home_text);
+//			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_home_id)).getText(),
+//					eaAdvancedMenuUtils.TEXT.n_menu_home_text);
 			driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_home_id)).click();
 			Thread.sleep(2000);
 			if (driver.getTitle() == eaAdvancedMenuUtils.TEXT.menu_home_page_title) {
@@ -40,16 +40,16 @@ public class EaAdvancedMenu {
 			Thread.sleep(2000);
 
 			// ELEMENT
-			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_id)).getText(),
-					eaAdvancedMenuUtils.TEXT.n_menu_element_text);
+//			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_id)).getText(),
+//					eaAdvancedMenuUtils.TEXT.n_menu_element_text);
 			WebElement element_menu = driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_id));
 			mousehover.moveToElement(element_menu).build().perform();
 
 			// ELEMENT - ADVANCE ACCORDION
 			WebElement element_menu_advance_accordion = driver
 					.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_advance_accordion_id));
-			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_advance_accordion_id))
-					.getText(), eaAdvancedMenuUtils.TEXT.n_menu_element_advance_accordion_text);
+//			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_advance_accordion_id))
+//					.getText(), eaAdvancedMenuUtils.TEXT.n_menu_element_advance_accordion_text);
 			mousehover.moveToElement(element_menu_advance_accordion).build().perform();
 			element_menu_advance_accordion.click();
 			Thread.sleep(2000);
@@ -65,8 +65,8 @@ public class EaAdvancedMenu {
 			mousehover.moveToElement(element_menu1).build().perform();
 			WebElement element_menu_google_map = driver
 					.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_google_map_id));
-			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_google_map_id)).getText(),
-					eaAdvancedMenuUtils.TEXT.n_menu_element_google_map_text);
+//			softassert.assertEquals(driver.findElement(By.id(eaAdvancedMenuUtils.Locator.n_menu_element_google_map_id)).getText(),
+//					eaAdvancedMenuUtils.TEXT.n_menu_element_google_map_text);
 			mousehover.moveToElement(element_menu_google_map).build().perform();
 			element_menu_google_map.click();
 			Thread.sleep(2000);

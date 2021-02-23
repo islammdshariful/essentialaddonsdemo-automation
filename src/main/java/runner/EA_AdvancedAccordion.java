@@ -13,7 +13,7 @@ public class EA_AdvancedAccordion {
 
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -23,9 +23,11 @@ public class EA_AdvancedAccordion {
 	}
 	
 	
-	@Test(dependsOnMethods = "invokeBrowser")
+//	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void eventadvanceaccordionTestCase() {
+		invokeBrowser();
 		EaAdvancedAccordion.eaAdvancedAccordion(driver, "advanced-accordion/");
-		driver.close();
+//		driver.close();
 	}
 }

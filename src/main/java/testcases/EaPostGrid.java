@@ -54,7 +54,7 @@ public class EaPostGrid {
 			
 			driver.navigate().back();
 
-			js.executeScript("window.scrollBy(0,1725)", "");
+			js.executeScript("window.scrollBy(0,1700)", "");
 	
 			driver.findElement(By.id(eaPostGridUtils.Locator.loadmore_button_id)).click();
 			

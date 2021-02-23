@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_OffcanvasContent {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_OffcanvasContent {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 	
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void offfcanvasContentTestCase() {
+		invokeBrowser();
 		EaOffcanvasContent.eaOffcanvasContent(driver, "offcanvas-content/");
-		driver.close();
+//		driver.close();
 	}
 }

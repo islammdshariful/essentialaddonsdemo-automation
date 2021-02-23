@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_LightboxModal {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_LightboxModal {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void ountdownTestCase() {
+		invokeBrowser();
 		EaLightboxModal.eaLightboxModal(driver, "lightbox-modal/");
-		driver.close();
+//		driver.close();
 	}
 }

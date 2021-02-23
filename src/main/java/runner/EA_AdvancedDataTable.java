@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_AdvancedDataTable {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,11 @@ public class EA_AdvancedDataTable {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+//	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void advancedDataTableTestCase() {
+		invokeBrowser();
 		EaAdvancedDataTable.eaAdvancedDataTable(driver, "advanced-data-table/");
-		driver.close();
+//		driver.close();
 	}
 }

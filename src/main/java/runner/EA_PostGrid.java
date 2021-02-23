@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_PostGrid {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -22,9 +22,10 @@ public class EA_PostGrid {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void postGridTestCase() {
+		invokeBrowser();
 		EaPostGrid.eaPostGrid(driver, "post-grid/");
-		driver.close();
+//		driver.close();
 	}
 }

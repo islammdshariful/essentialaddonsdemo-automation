@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_DataTable {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_DataTable {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void eventinfoboxTestCase() {
+		invokeBrowser();
 		EaDataTable.eaDataTable(driver, "table/");
-		driver.close();
+//		driver.close();
 	}
 }

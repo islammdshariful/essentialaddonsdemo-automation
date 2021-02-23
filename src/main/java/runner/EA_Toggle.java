@@ -12,7 +12,7 @@ import wpdev.ea.utils.Config;
 public class EA_Toggle {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,10 +21,10 @@ public class EA_Toggle {
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void toggleTestCase() {
-
+		invokeBrowser();
 		EaToggle.eaToggle(driver, "content-toggle/");
-		driver.close();
+//		driver.close();
 	}
 }

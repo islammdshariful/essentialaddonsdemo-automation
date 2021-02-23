@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_PriceMenu {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_PriceMenu {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void priceMenuTestCase() {
+		invokeBrowser();
 		EaPriceMenu.eaPriceMenu(driver, "price-menu/");
-		driver.close();
+//		driver.close();
 	}
 }

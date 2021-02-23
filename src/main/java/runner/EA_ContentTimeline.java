@@ -6,13 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import testcases.EaContentTimeline;
-import wpdev.ea.utils.Config;
 import wpdev.ea.utils.DriverManager;
 
 public class EA_ContentTimeline {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -22,9 +21,10 @@ public class EA_ContentTimeline {
 	}
 
 	
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void contentTimelineTestCase() {
+		invokeBrowser();
 		EaContentTimeline.eaontentTimeline(driver, "content-timeline/");
-		driver.close();
+//		driver.close();
 	}
 }

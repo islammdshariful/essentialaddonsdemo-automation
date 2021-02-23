@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_Counter {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_Counter {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void counterTestCase() {
+		invokeBrowser();
 		EaCounter.eaCounter(driver, "counter/");
-		driver.close();
+//		driver.close();
 	}
 }

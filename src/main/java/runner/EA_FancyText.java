@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_FancyText {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_FancyText {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void ountdownTestCase() {
+		invokeBrowser();
 		EaFancyText.eaFancyText(driver, "fancy-text/");
-		driver.close();
+//		driver.close();
 	}
 }

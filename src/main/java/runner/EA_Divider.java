@@ -11,7 +11,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_Divider {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_Divider {
 	}
 
 
-	@Test(dependsOnMethods = "invokeBrowser")
-	public void ountdownTestCase() {
+	@Test
+	public void dividerTestCase() {
+		invokeBrowser();
 		EaDivider.eaDivider(driver, "divider/");
-		driver.close();
+//		driver.close();
 	}
 }

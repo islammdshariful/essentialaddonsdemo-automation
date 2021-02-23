@@ -12,7 +12,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_SmartPostList {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -21,9 +21,10 @@ public class EA_SmartPostList {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void eaSmartPostListTestCase() {
+		invokeBrowser();
 		EaSmartPostList.eaSmartPostList(driver, "post-list/");
-		driver.close();
+//		driver.close();
 	}
 }

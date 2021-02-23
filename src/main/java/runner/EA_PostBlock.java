@@ -13,7 +13,7 @@ import wpdev.ea.utils.DriverManager;
 public class EA_PostBlock {
 	WebDriver driver = null;
 
-	@Test
+//	@Test
 	public void invokeBrowser() {
 		driver = DriverManager.driver;
 		driver.manage().deleteAllCookies();
@@ -22,9 +22,10 @@ public class EA_PostBlock {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@Test(dependsOnMethods = "invokeBrowser")
+	@Test
 	public void postBlockTestCase() {
+		invokeBrowser();
 		EaPostBlock.eaPostBlock(driver, "post-block/");
-		driver.close();
+//		driver.close();
 	}
 }
